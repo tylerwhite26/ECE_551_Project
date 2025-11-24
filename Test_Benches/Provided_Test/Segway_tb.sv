@@ -1,4 +1,6 @@
 module Segway_tb();
+
+'include "tb_tasks.sv";
 			
 //// Interconnects to DUT/support defined as type wire /////
 wire SS_n,SCLK,MOSI,MISO,INT;				// to inertial sensor
