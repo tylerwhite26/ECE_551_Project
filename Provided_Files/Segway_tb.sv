@@ -53,12 +53,25 @@ rst_synch iRST(.clk(clk),.RST_n(RST_n),.rst_n(rst_n));
 
 initial begin
   
-  /// Your magic goes here ///
-  
+  clk = 0;
+  RST_n = 0;
+  rider_lean = 16'h0000;
+  repeat(3) @(posedge clk);
+  RST_n = 1; 
+  repeat(3) @(posedge clk)
+  // TODO: Segway must be enabled before by sending a G and having suffucient rider_weight
+  // Test a high positive rider_lean value function for 1 million clk cycles. // Theta_platform should go high, then low, then converge to 0
+  rider_lean = 16'h0FFFF;
+  repeat(25) @(posedge clk); 
+  // Abruptly set rider_lean to 0 and observe the response. Should go negative and converge back to 0.
+  rider_lean = 16'h00000;
+  repeat(10) @(posedge clk);
+  // Test a high negative rider_lean value function for 1 million clk cycles. // Theta_platform should go low, then high, then converge to 0
+  rider_lean = 16'h1FFF;
   $stop();
 end
 
 always
-  #10 clk = ~clk;
+  #10 clk = ~clk; // 100MHz clock
 
 endmodule	
