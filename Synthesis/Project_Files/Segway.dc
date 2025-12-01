@@ -49,13 +49,6 @@ set_load 0.05 [all_outputs]
 #############################
 set_wire_load_model -name 16000 -library saed32rvt_tt0p85v25c
 set_max_transition 0.10 [current_design]
-set_multicycle_path 2 -setup -from [find pin iNEMO/ptch_*_reg*/CLK]
-set_multicycle_path 2 -setup -from [find pin iNEMO/AZ*_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iNEMO/ptch_*_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
-set_multicycle_path 2 -setup -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
-
 
 #####################
 # Clock Uncertainty #
@@ -67,6 +60,16 @@ set_fix_hold clk
 # Compile the design #
 ######################
 compile -map_effort medium
+
+#############################
+# Miscellaneous Constraints #
+#############################
+set_multicycle_path 2 -setup -from [find pin iNEMO/ptch_*_reg*/CLK]
+set_multicycle_path 2 -setup -from [find pin iNEMO/AZ*_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iNEMO/ptch_*_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
+set_multicycle_path 2 -setup -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
 
 #####################
 # Flatten hierarchy #
@@ -82,6 +85,6 @@ report_timing -delay min
 report_area > area.txt
 
 ###########################################
-# Write out resulting synthesized netlist #
+# Write out the resulting synthesised netlist #
 ###########################################
 write -format verilog Segway -output Segway.vg
