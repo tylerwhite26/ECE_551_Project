@@ -4,8 +4,6 @@
 read_file -format sverilog {./Auth_blk.sv\
                             ./inert_intf.sv\
                             ./balance_cntrl.sv\
-#                            ./PID.sv\
-#                            ./SegwayMath.sv\
                             ./steer_en.sv\
                             ./mtr_drv.sv\
                             ./A2D_intf.sv\

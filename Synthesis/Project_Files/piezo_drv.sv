@@ -70,8 +70,8 @@ generate
     always_ff @(posedge clk, negedge rst_n) begin 
     if (!rst_n) 
         durationTimer <= 0;
-            else if (duration_done)
-                durationTimer = 0;  // Reset when duration completes
+    else if (duration_done)
+        durationTimer <= 0;  // Reset when duration completes
     else 
         durationTimer <= durationTimer + 64;
     end
@@ -79,8 +79,8 @@ generate
         always_ff @(posedge clk, negedge rst_n) begin
             if (!rst_n)
                 durationTimer <= 0;
-                else if (duration_done)
-                    durationTimer = 0;  // Reset when duration completes
+            else if (duration_done)
+                durationTimer <= 0;  // Reset when duration completes
             else 
                 durationTimer <= durationTimer + 1;
         end
