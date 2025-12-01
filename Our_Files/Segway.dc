@@ -11,6 +11,8 @@ read_file -format sverilog {./Auth_blk.sv\
                             ./rst_synch.sv\
                             ./UART_rx.sv\
                             ./inertial_integrator.sv\
+                            ./SPI_mnrch.sv\
+                            ./PWM11.sv\
                             ./Segway.sv }
 
 ###################################
