@@ -11,6 +11,8 @@ read_file -format sverilog {./Auth_blk.sv\
                             ./rst_synch.sv\
                             ./UART_rx.sv\
                             ./inertial_integrator.sv\
+                            ./SPI_mnrch.sv\
+                            ./PWM11.sv\
                             ./Segway.sv }
 
 ###################################
@@ -65,16 +67,6 @@ set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
 set_multicycle_path 2 -setup -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
 set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
 
-#############################
-# Miscellaneous Constraints #
-#############################
-set_multicycle_path 2 -setup -from [find pin iNEMO/ptch_*_reg*/CLK]
-set_multicycle_path 2 -setup -from [find pin iNEMO/AZ*_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iNEMO/ptch_*_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
-set_multicycle_path 2 -setup -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
-
 #####################
 # Flatten hierarchy #
 #####################
@@ -89,6 +81,6 @@ report_timing -delay min
 report_area > area.txt
 
 ###########################################
-# Write out the resulting synthesised netlist #
+# Write out resulting synthesized netlist #
 ###########################################
 write -format verilog Segway -output Segway.vg
