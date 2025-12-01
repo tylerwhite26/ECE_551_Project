@@ -4,13 +4,15 @@
 read_file -format sverilog {./Auth_blk.sv\
                             ./inert_intf.sv\
                             ./balance_cntrl.sv\
-                            ./PID.sv\
-                            ./SegwayMath.sv\
                             ./steer_en.sv\
                             ./mtr_drv.sv\
                             ./A2D_intf.sv\
                             ./piezo_drv.sv\
                             ./rst_synch.sv\
+                            ./UART_rx.sv\
+                            ./inertial_integrator.sv\
+                            ./SPI_mnrch.sv\
+                            ./PWM11.sv\
                             ./Segway.sv }
 
 ###################################
@@ -47,13 +49,6 @@ set_load 0.05 [all_outputs]
 #############################
 set_wire_load_model -name 16000 -library saed32rvt_tt0p85v25c
 set_max_transition 0.10 [current_design]
-set_multicycle_path 2 -setup -from [find pin iNEMO/ptch_*_reg*/CLK]
-set_multicycle_path 2 -setup -from [find pin iNEMO/AZ*_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iNEMO/ptch_*_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
-set_multicycle_path 2 -setup -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
-set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
-
 
 #####################
 # Clock Uncertainty #
@@ -65,6 +60,12 @@ set_fix_hold clk
 # Compile the design #
 ######################
 compile -map_effort medium
+set_multicycle_path 2 -setup -from [find pin iNEMO/ptch_*_reg*/CLK]
+set_multicycle_path 2 -setup -from [find pin iNEMO/AZ*_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iNEMO/ptch_*_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iNEMO/AZ*_reg*/CLK]
+set_multicycle_path 2 -setup -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
+set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
 
 #####################
 # Flatten hierarchy #

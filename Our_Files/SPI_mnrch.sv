@@ -40,8 +40,8 @@ always_ff @(posedge clk) begin
     else if (shft) begin
         shft_reg <= {shft_reg[14:0], MISO_smpl};
     end
-assign MOSI = shft_reg[15];
 end
+assign MOSI = shft_reg[15];
 
 assign rd_data = shft_reg;
 
