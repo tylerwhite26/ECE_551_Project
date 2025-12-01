@@ -11,6 +11,7 @@ read_file -format sverilog {./Auth_blk.sv\
                             ./A2D_intf.sv\
                             ./piezo_drv.sv\
                             ./rst_synch.sv\
+                            ./UART_rx.sv\
                             ./Segway.sv }
 
 ###################################
