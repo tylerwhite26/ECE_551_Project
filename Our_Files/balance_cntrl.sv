@@ -21,13 +21,14 @@ module balance_cntrl (
     // module connections
     PID #(.FAST_SIM(FAST_SIM)) pid_unit (.clk(clk), .rst_n(rst_n), .vld(vld), .ptch(ptch), .ptch_rt(ptch_rt), .pwr_up(pwr_up), .rider_off(rider_off),
             .PID_cntrl(PID_cntrl), .ss_tmr(ss_tmr));
-    SegwayMath math_unit(.PID_cntrl(PID_cntrl), .ss_tmr(ss_tmr), .steer_pot(steer_pot), .en_steer(en_steer),
+    SegwayMath math_unit(.clk(clk), .PID_cntrl(PID_cntrl), .ss_tmr(ss_tmr), .steer_pot(steer_pot), .en_steer(en_steer),
             .pwr_up(pwr_up), .lft_spd(lft_spd), .rght_spd(rght_spd), .too_fast(too_fast));
 
 endmodule
 
 
 module SegwayMath(
+    input logic clk,
     input logic signed [11:0] PID_cntrl,
     input logic [7:0] ss_tmr,
     input logic [11:0] steer_pot,
@@ -38,6 +39,24 @@ module SegwayMath(
     output too_fast
 );
 
+    // Pipeline registers for signals from PID module
+    logic signed [11:0] PID_cntrl_piped;
+    logic [7:0] ss_tmr_piped;
+    always_ff @ (posedge clk) begin
+        PID_cntrl_piped <= PID_cntrl;
+        ss_tmr_piped <= ss_tmr;
+    end
+
+    // For pipelining outputs
+    logic signed [11:0] lft_spd_internal;
+    logic signed [11:0] rght_spd_internal;
+    logic too_fast_internal;
+    always_ff @ (posedge clk) begin
+        lft_spd <= lft_spd_internal;
+        rght_spd <= rght_spd_internal;
+        too_fast <= too_fast_internal;
+    end
+    
     // Local Parameters
     localparam [12:0] MIN_DUTY = 13'h0A8;
     localparam [6:0] LOW_TORQUE_BAND = 7'h2A;
@@ -60,8 +79,8 @@ module SegwayMath(
     logic signed [12:0] lft_torque_abs;
     logic signed [12:0] rght_torque_abs;
 
-    // Scale PID_cntrl to ensure a smooth start
-    assign PID_mult = PID_cntrl * $signed({1'h0, ss_tmr});
+    // Scale PID_cntrl_piped to ensure a smooth start
+    assign PID_mult = PID_cntrl_piped * $signed({1'h0, ss_tmr_piped});
     assign PID_ss = PID_mult[19:8];
 
     // Limit steer pot signal and scale by 3/16
@@ -89,13 +108,13 @@ module SegwayMath(
     assign rght_shaped = pwr_up ? rght_shaped_always : 13'h0000;
 
     // Sature the shaped torques to speeds and ensure they are not too fast
-    assign lft_spd =    lft_shaped[12] & ~lft_shaped[11] ? 12'h800 :
+    assign lft_spd_internal =    lft_shaped[12] & ~lft_shaped[11] ? 12'h800 :
                         ~lft_shaped[12] & lft_shaped[11] ? 12'h7FF :
                         lft_shaped[11:0];
-    assign rght_spd =   rght_shaped[12] & ~rght_shaped[11] ? 12'h800 :
+    assign rght_spd_internal =   rght_shaped[12] & ~rght_shaped[11] ? 12'h800 :
                         ~rght_shaped[12] & rght_shaped[11] ? 12'h7FF :
                         rght_shaped[11:0];
-    assign too_fast = rght_spd > $signed(UPPER_SPEED) | lft_spd > $signed(UPPER_SPEED);
+    assign too_fast_internal = rght_spd_internal > $signed(UPPER_SPEED) | lft_spd_internal > $signed(UPPER_SPEED);
 
 endmodule
 
