@@ -44,7 +44,17 @@ task send_command(input [7:0] cmd_to_send);
         @ (posedge clk);
         send_cmd = 0;
     end
+endtask
 
+// Creates a tilt to test theta_platform waveform
+task check_theta_platform(input [15:0] rider_lean); // Max is 0x0FFF for forward lean and 0x1FFF
+begin
+    rider_lean = rider_lean;
+    repeat(20) @(posedge clk);
+    //  Abruptly set rider_lean to 0 and observe response. Should eventually converge to 0 if rider_lean is positive
+    rider_lean = 16'h0000;
+    repeat(20) @(posedge clk);
+end
 endtask
 
 
