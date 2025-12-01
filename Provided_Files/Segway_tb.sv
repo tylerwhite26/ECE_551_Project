@@ -58,20 +58,18 @@ initial begin
   rider_lean = 16'h0000;
   repeat(3) @(posedge clk);
   RST_n = 1; 
-  repeat(3) @(posedge clk)
-  // TODO: Segway must be enabled before by sending a G and having suffucient rider_weight. Additionally, this code should be in tasks for reusability.
-  // Test a high positive rider_lean value function for 1 million clk cycles. // Theta_platform should go high, then low, then converge to 0
-  rider_lean = 16'h0FFFF;
-  repeat(25) @(posedge clk); 
-  // Abruptly set rider_lean to 0 and observe the response. Should go negative and converge back to 0.
-  rider_lean = 16'h00000;
-  repeat(10) @(posedge clk);
-  // Test a high negative rider_lean value function for 1 million clk cycles. // Theta_platform should go low, then high, then converge to 0
+  repeat(3) @(posedge clk);
+  // Send 'G' to power up segway
+  block_send_command(8'h47);
+  @(posedge clk);
+  
+
+  rider_lean = 16'h0FFFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
+  check_theta_platform(rider_lean);
+
+  // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
   rider_lean = 16'h1FFF;
-  repeat(25) @(posedge clk);
-  // Abruptly set rider_lean to 0 and observe the response. Should go positive and converge back to 0.
-  rider_lean = 16'h00000;
-  repeat(10) @(posedge clk);
+  check_theta_platform(rider_lean); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
 
   $stop();
 end
