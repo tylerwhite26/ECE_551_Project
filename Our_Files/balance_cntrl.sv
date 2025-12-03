@@ -36,7 +36,7 @@ module SegwayMath(
     input pwr_up,
     output logic signed [11:0] lft_spd,
     output logic signed [11:0] rght_spd,
-    output too_fast
+    output logic too_fast
 );
 
     // Pipeline registers for signals from PID module
