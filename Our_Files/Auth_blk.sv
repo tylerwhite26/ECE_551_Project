@@ -1,83 +1,82 @@
-module Auth_blk (
+module Auth_blk(
+    input rx,
     input clk,
     input rst_n,
-    input RX,
     input rider_off,
     output logic pwr_up
 );
+logic [7:0] rx_data;
+logic rx_rdy, clr_rx_rdy;
+// Instantiate the UART Receiver
+UART_rx uart_receiver (
+    .clk(clk),          // Connect to system clock
+    .rst_n(rst_n),       // Connect to system reset (active low)
+    .RX(rx),        // UART RX input
+    .clr_rdy(clr_rx_rdy), // Clear ready signal when rider is off
+    .rdy(rx_rdy),   // Power up signal when byte received
+    .rx_data(rx_data)      // Received data byte that goes into our state machine
+);
 
-    // internal signals
-    logic [7:0] rx_data;
-    logic rdy, clr_rdy, pow_rec, s_rec, pow_down;
+// PWR_UP is asserted when we receive the command 0x47 ('G')
+// When we disconnect due to app disconnection or range of module, it sends a 0x53 ('S').
+// The segway then shuts down (if weight of platform no longer exceeds MIN_RIDER_WEIGHT), indicated by rider_off
 
-    // internal uart_rx module
-    UART_rx rx_mod (.clk(clk), .rst_n(rst_n), .RX(RX), .rdy(rdy), .clr_rdy(clr_rdy), .rx_data(rx_data));
 
-    // internal states
-    typedef enum {INIT, RDY, G, S} state_t;
-    state_t state;
-    state_t next_state;
-
-    // state transitions
-    always_ff @ (posedge clk or negedge rst_n) begin
-        if (!rst_n)
-            state <= INIT;
-        else
-            state <= next_state;
+typedef enum logic [1:0] { WAIT_ON_CMD, SEGWAY_ON, SEGWAY_OFF} state_t;
+state_t current_state, next_state;
+always_ff @(posedge clk, negedge rst_n) begin
+    if (!rst_n) begin
+        current_state <= WAIT_ON_CMD;
+    end else begin
+        current_state <= next_state;
     end
+end
 
-    // state machine
-    always_comb begin
-        pow_rec = 0;
-        s_rec = 0;
-        clr_rdy = 0;
-        next_state = state;
-        case (state)
-            INIT : begin
-                if (rdy)
-                    next_state = RDY;
-            end
-            RDY : begin
-                if (rx_data == 8'h47) begin // case of recieving a 'G'
-                    clr_rdy = 1;
-                    next_state = G;
-                end else if (rx_data == 8'h53) begin // case of recieving an 'S'
-                    clr_rdy = 1;
-                    next_state = S;
-                end else begin
-                    clr_rdy = 1;
-                    next_state = INIT;
+always_comb begin
+    next_state = current_state;
+    clr_rx_rdy = 1'b0;
+    pwr_up = 0;
+    case (current_state)
+        WAIT_ON_CMD: begin
+            if (rx_rdy) begin
+                clr_rx_rdy = 1'b1;
+                // If we receive 'G' (0x47), move to SEGWAY_ON, else stay in WAIT_ON_CMD (No power up)
+                if (rx_data == 8'h47) begin
+                    next_state <= SEGWAY_ON;
+                    pwr_up = 1'b1;
                 end
             end
-            G : begin
-                pow_rec = 1;
-                next_state = INIT;
+        end
+        SEGWAY_ON: begin
+            pwr_up = 1'b1;
+            // Only leave this state when we receive 'S' (0x53)
+            if (rx_rdy) begin
+                clr_rx_rdy = 1'b1;
+                if (rx_data == 8'h53) begin
+                    next_state <= SEGWAY_OFF;
+                end
             end
-            S : begin
-                s_rec = 1;
-                next_state = INIT;
+        end
+        SEGWAY_OFF: begin
+            pwr_up = 1'b1;
+            // PWR_UP deasserted when rider_off signal is high and last reception was 0x53 ('S')
+            if (rider_off) begin
+                next_state <= WAIT_ON_CMD;
+                clr_rx_rdy = 1'b1;
             end
-        endcase
-    end
+            else if (rx_rdy) begin
+                clr_rx_rdy = 1'b1;
+                if (rx_data == 8'h47) begin
+                    next_state <= SEGWAY_ON;
+                end
+            end
+        end
+        // If an error occurs and somehow enter this state, go to the same state as reset
+        default: begin
+            next_state = WAIT_ON_CMD;
+        end
+    endcase
+end
 
-    // latch power down so that it waits for rider_off to affect pwr_up
-    always @ (*) begin
-        if (!rst_n)
-            pow_down <= 1'b0;
-        else if (s_rec)
-            pow_down <= 1'b1;
-        else if (pow_rec)
-            pow_down <= 1'b0;
-    end
-
-    // flop pwr_up based on state machine assertions
-    always_ff @ (posedge clk or negedge rst_n) begin
-        if (!rst_n)
-            pwr_up <= 1'b0;
-        else if (pow_down & rider_off) // power down priority
-            pwr_up <= 1'b0;
-        else if (pow_rec)
-            pwr_up <= 1'b1;
-    end
 
 endmodule

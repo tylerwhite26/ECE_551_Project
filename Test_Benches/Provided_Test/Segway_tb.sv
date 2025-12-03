@@ -1,6 +1,4 @@
 module Segway_tb();
-
-'include "tb_tasks.sv";
 			
 //// Interconnects to DUT/support defined as type wire /////
 wire SS_n,SCLK,MOSI,MISO,INT;				// to inertial sensor
@@ -55,12 +53,28 @@ rst_synch iRST(.clk(clk),.RST_n(RST_n),.rst_n(rst_n));
 
 initial begin
   
-  /// Your magic goes here ///
+  clk = 0;
+  RST_n = 0;
+  rider_lean = 16'h0000;
+  repeat(3) @(posedge clk);
+  RST_n = 1; 
+  repeat(5) @(posedge clk);
+  // Send 'G' to power up segway
+  block_send_command(8'h47);
+  @(posedge clk);
   
+
+  rider_lean = 16'h0FFFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
+  check_theta_platform(rider_lean);
+
+  // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
+  rider_lean = 16'h1FFF;
+  check_theta_platform(rider_lean); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
+
   $stop();
 end
 
 always
-  #10 clk = ~clk;
+  #10 clk = ~clk; // 100MHz clock
 
 endmodule	
