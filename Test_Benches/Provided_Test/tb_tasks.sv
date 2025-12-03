@@ -3,7 +3,7 @@
 task initialize_DUT();
 
     begin
-        rst_n = 0;
+        RST_n = 0;
         clk = 0;
         cmd = 8'h00;
         send_cmd = 0;
@@ -15,7 +15,7 @@ task initialize_DUT();
         OVR_I_lft = 0;
         OVR_I_rght = 0;
         repeat(10) @ (posedge clk);
-        rst_n = 1;
+        RST_n = 1;
     end
 
 endtask

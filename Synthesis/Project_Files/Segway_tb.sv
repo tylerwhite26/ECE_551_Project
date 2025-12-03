@@ -23,6 +23,9 @@ reg OVR_I_lft, OVR_I_rght;
 ////////////////////////////////////////////////////////////////
 // Instantiate Physical Model of Segway with Inertial sensor //
 //////////////////////////////////////////////////////////////	
+// Import tasks from package-based testbench helper
+import tb_tasks_pkg::*;
+
 SegwayModel iPHYS(.clk(clk),.RST_n(RST_n),.SS_n(SS_n),.SCLK(SCLK),
                   .MISO(MISO),.MOSI(MOSI),.INT(INT),.PWM1_lft(PWM1_lft),
 				  .PWM2_lft(PWM2_lft),.PWM1_rght(PWM1_rght),
@@ -60,16 +63,17 @@ initial begin
   RST_n = 1; 
   repeat(5) @(posedge clk);
   // Send 'G' to power up segway
-  block_send_command(8'h47);
+  // call package task, passing references and clk/signal used by the task
+  block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   @(posedge clk);
   
 
   rider_lean = 16'h0FFFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
-  check_theta_platform(rider_lean);
+  check_theta_platform(rider_lean, clk);
 
   // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
   rider_lean = 16'h1FFF;
-  check_theta_platform(rider_lean); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
+  check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
 
   $stop();
 end
