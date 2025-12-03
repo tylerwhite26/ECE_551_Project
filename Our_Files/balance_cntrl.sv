@@ -10,7 +10,7 @@ module balance_cntrl (
     input en_steer,
     output [11:0] lft_spd,
     output [11:0] rght_spd,
-    output too_fast
+    output logic too_fast
 );
     parameter FAST_SIM = 1;
 
