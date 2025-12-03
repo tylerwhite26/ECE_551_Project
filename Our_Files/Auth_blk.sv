@@ -42,7 +42,7 @@ always_comb begin
                 clr_rx_rdy = 1'b1;
                 // If we receive 'G' (0x47), move to SEGWAY_ON, else stay in WAIT_ON_CMD (No power up)
                 if (rx_data == 8'h47) begin
-                    next_state <= SEGWAY_ON;
+                    next_state = SEGWAY_ON;
                     pwr_up = 1'b1;
                 end
             end
@@ -53,7 +53,7 @@ always_comb begin
             if (rx_rdy) begin
                 clr_rx_rdy = 1'b1;
                 if (rx_data == 8'h53) begin
-                    next_state <= SEGWAY_OFF;
+                    next_state = SEGWAY_OFF;
                 end
             end
         end
@@ -61,13 +61,13 @@ always_comb begin
             pwr_up = 1'b1;
             // PWR_UP deasserted when rider_off signal is high and last reception was 0x53 ('S')
             if (rider_off) begin
-                next_state <= WAIT_ON_CMD;
+                next_state = WAIT_ON_CMD;
                 clr_rx_rdy = 1'b1;
             end
             else if (rx_rdy) begin
                 clr_rx_rdy = 1'b1;
                 if (rx_data == 8'h47) begin
-                    next_state <= SEGWAY_ON;
+                    next_state = SEGWAY_ON;
                 end
             end
         end
