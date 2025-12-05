@@ -62,12 +62,21 @@ module UART_tx (
     end
 
     // state transition
-    always @ (posedge clk) begin
-        state <= next_state;
+    always_ff @ (posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            state <= RESET;
+        else
+            state <= next_state;
     end
 
     // state machine
-    always @(*) begin
+    always_comb begin
+        // default outputs/next state
+        next_state = state;
+        load = 0;
+        set_done = 0;
+        txing = 0;
+
         case (state)
             RESET : begin
                 if (trmt) begin
@@ -88,6 +97,9 @@ module UART_tx (
                     txing = 0;
                     set_done = 1;
                 end
+            end
+            default: begin
+                next_state = RESET;
             end
         endcase
     end

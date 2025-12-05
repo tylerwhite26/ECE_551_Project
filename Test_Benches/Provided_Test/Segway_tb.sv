@@ -6,7 +6,7 @@ wire A2D_SS_n,A2D_SCLK,A2D_MOSI,A2D_MISO;	// to A2D converter
 wire RX_TX;
 wire PWM1_rght, PWM2_rght, PWM1_lft, PWM2_lft;
 wire piezo,piezo_n;
-wire cmd_sent;
+logic cmd_sent;
 wire rst_n;					// synchronized global reset
 
 ////// Stimulus is declared as type reg ///////
@@ -64,7 +64,7 @@ initial begin
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
   $display("Sending power up command...");
-  block_send_command(8'h47, cmd, send_cmd, clk, send_cmd);
+  block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   $display("Sent power up command.");
   @(posedge clk);  
   $display("Starting first test...");
