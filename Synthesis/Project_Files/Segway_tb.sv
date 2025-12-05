@@ -55,7 +55,6 @@ UART_tx iTX(.clk(clk),.rst_n(rst_n),.TX(RX_TX),.trmt(send_cmd),.tx_data(cmd),.tx
 rst_synch iRST(.clk(clk),.RST_n(RST_n),.rst_n(rst_n));
 
 initial begin
-  
   clk = 0;
   RST_n = 0;
   rider_lean = 16'h0000;
@@ -64,17 +63,21 @@ initial begin
   repeat(5) @(posedge clk);
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
+  $display("Sending power up command...");
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
+  $display("Power up command sent.");
+  @(posedge clk);  
+  $display("Starting first test...");
+  rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
   @(posedge clk);
-  
-
-  rider_lean = 16'h0FFFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
   check_theta_platform(rider_lean, clk);
 
   // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
   rider_lean = 16'h1FFF;
+  $display("Starting second test...");
+  @(posedge clk);
   check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
-
+  $display("Second test complete.");
   $stop();
 end
 

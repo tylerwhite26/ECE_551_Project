@@ -1,5 +1,5 @@
 module Auth_blk(
-    input rx,
+    input RX,
     input clk,
     input rst_n,
     input rider_off,
