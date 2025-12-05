@@ -44,7 +44,7 @@ package tb_tasks_pkg;
       send_cmd = 1;
       @ (posedge clk);
       send_cmd = 0;
-      @ (cmd_sent);
+      @ (posedge cmd_sent);
     end
   endtask
 
