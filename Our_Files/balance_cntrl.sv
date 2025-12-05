@@ -91,9 +91,10 @@ module SegwayMath(
     // pipe this multiply as well
     logic signed [12:0] steer_pot_scale_i;
     logic signed [12:0] steer_pot_scale_j;
-    always_ff @ (posedge clk)
+    always_ff @ (posedge clk) begin
         steer_pot_scale_j <= steer_pot_scale_i;
         steer_pot_scale <= steer_pot_scale_j;
+    end
 
     // Limit steer pot signal and scale by 3/16
     assign steer_pot_lim =  steer_pot < 12'h200 ? 12'h200 : 
