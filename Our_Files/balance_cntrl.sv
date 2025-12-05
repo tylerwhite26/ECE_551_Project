@@ -91,9 +91,10 @@ module SegwayMath(
     // pipe this multiply as well
     logic signed [12:0] steer_pot_scale_i;
     logic signed [12:0] steer_pot_scale_j;
+    logic signed [12:0] steer_pot_scale_k;
     always_ff @ (posedge clk) begin
         steer_pot_scale_j <= steer_pot_scale_i;
-        steer_pot_scale <= steer_pot_scale_j;
+        steer_pot_scale <= steer_pot_scale_k;
     end
 
     // Limit steer pot signal and scale by 3/16
@@ -101,7 +102,7 @@ module SegwayMath(
                             steer_pot > 12'hE00 ? 12'hE00 :
                             steer_pot;
     assign steer_pot_scale_i = $signed(3) * $signed(steer_pot_lim - 12'h800);
-    assign steer_pot_scale_j = steer_pot_scale_i / $signed(16);
+    assign steer_pot_scale_k = steer_pot_scale_j / $signed(16);
 
     // Torques should be equal if steer not enabled and scaled steer values if steer is enabled
     assign lft_torque = en_steer ? $signed({PID_ss[11], PID_ss}) + steer_pot_scale : $signed({PID_ss[11], PID_ss});
