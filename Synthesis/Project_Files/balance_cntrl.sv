@@ -10,7 +10,7 @@ module balance_cntrl (
     input en_steer,
     output [11:0] lft_spd,
     output [11:0] rght_spd,
-    output too_fast
+    output logic too_fast
 );
     parameter FAST_SIM = 1;
 
@@ -21,13 +21,14 @@ module balance_cntrl (
     // module connections
     PID #(.FAST_SIM(FAST_SIM)) pid_unit (.clk(clk), .rst_n(rst_n), .vld(vld), .ptch(ptch), .ptch_rt(ptch_rt), .pwr_up(pwr_up), .rider_off(rider_off),
             .PID_cntrl(PID_cntrl), .ss_tmr(ss_tmr));
-    SegwayMath math_unit(.PID_cntrl(PID_cntrl), .ss_tmr(ss_tmr), .steer_pot(steer_pot), .en_steer(en_steer),
+    SegwayMath math_unit(.clk(clk), .PID_cntrl(PID_cntrl), .ss_tmr(ss_tmr), .steer_pot(steer_pot), .en_steer(en_steer),
             .pwr_up(pwr_up), .lft_spd(lft_spd), .rght_spd(rght_spd), .too_fast(too_fast));
 
 endmodule
 
 
 module SegwayMath(
+    input logic clk,
     input logic signed [11:0] PID_cntrl,
     input logic [7:0] ss_tmr,
     input logic [11:0] steer_pot,
@@ -35,9 +36,27 @@ module SegwayMath(
     input pwr_up,
     output logic signed [11:0] lft_spd,
     output logic signed [11:0] rght_spd,
-    output too_fast
+    output logic too_fast
 );
 
+    // Pipeline registers for signals from PID module
+    logic signed [11:0] PID_cntrl_piped;
+    logic [7:0] ss_tmr_piped;
+    always_ff @ (posedge clk) begin
+        PID_cntrl_piped <= PID_cntrl;
+        ss_tmr_piped <= ss_tmr;
+    end
+
+    // For pipelining outputs
+    logic signed [11:0] lft_spd_internal;
+    logic signed [11:0] rght_spd_internal;
+    logic too_fast_internal;
+    always_ff @ (posedge clk) begin
+        lft_spd <= lft_spd_internal;
+        rght_spd <= rght_spd_internal;
+        too_fast <= too_fast_internal;
+    end
+    
     // Local Parameters
     localparam [12:0] MIN_DUTY = 13'h0A8;
     localparam [6:0] LOW_TORQUE_BAND = 7'h2A;
@@ -60,15 +79,30 @@ module SegwayMath(
     logic signed [12:0] lft_torque_abs;
     logic signed [12:0] rght_torque_abs;
 
-    // Scale PID_cntrl to ensure a smooth start
-    assign PID_mult = PID_cntrl * $signed({1'h0, ss_tmr});
-    assign PID_ss = PID_mult[19:8];
+    // pipe the multiply
+    logic signed [11:0] PID_ss_i;
+    always_ff @ (posedge clk)
+        PID_ss <= PID_ss_i;
+
+    // Scale PID_cntrl_piped to ensure a smooth start
+    assign PID_mult = PID_cntrl_piped * $signed({1'h0, ss_tmr_piped});
+    assign PID_ss_i = PID_mult[19:8];
+
+    // pipe this multiply as well
+    logic signed [12:0] steer_pot_scale_i;
+    logic signed [12:0] steer_pot_scale_j;
+    logic signed [12:0] steer_pot_scale_k;
+    always_ff @ (posedge clk) begin
+        steer_pot_scale_j <= steer_pot_scale_i;
+        steer_pot_scale <= steer_pot_scale_k;
+    end
 
     // Limit steer pot signal and scale by 3/16
     assign steer_pot_lim =  steer_pot < 12'h200 ? 12'h200 : 
                             steer_pot > 12'hE00 ? 12'hE00 :
                             steer_pot;
-    assign steer_pot_scale = $signed(3) * $signed(steer_pot_lim - 12'h800) / $signed(16);
+    assign steer_pot_scale_i = $signed(3) * $signed(steer_pot_lim - 12'h800);
+    assign steer_pot_scale_k = steer_pot_scale_j / $signed(16);
 
     // Torques should be equal if steer not enabled and scaled steer values if steer is enabled
     assign lft_torque = en_steer ? $signed({PID_ss[11], PID_ss}) + steer_pot_scale : $signed({PID_ss[11], PID_ss});
@@ -89,13 +123,13 @@ module SegwayMath(
     assign rght_shaped = pwr_up ? rght_shaped_always : 13'h0000;
 
     // Sature the shaped torques to speeds and ensure they are not too fast
-    assign lft_spd =    lft_shaped[12] & ~lft_shaped[11] ? 12'h800 :
+    assign lft_spd_internal =    lft_shaped[12] & ~lft_shaped[11] ? 12'h800 :
                         ~lft_shaped[12] & lft_shaped[11] ? 12'h7FF :
                         lft_shaped[11:0];
-    assign rght_spd =   rght_shaped[12] & ~rght_shaped[11] ? 12'h800 :
+    assign rght_spd_internal =   rght_shaped[12] & ~rght_shaped[11] ? 12'h800 :
                         ~rght_shaped[12] & rght_shaped[11] ? 12'h7FF :
                         rght_shaped[11:0];
-    assign too_fast = rght_spd > $signed(UPPER_SPEED) | lft_spd > $signed(UPPER_SPEED);
+    assign too_fast_internal = rght_spd_internal > $signed(UPPER_SPEED) | lft_spd_internal > $signed(UPPER_SPEED);
 
 endmodule
 

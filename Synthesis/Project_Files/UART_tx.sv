@@ -3,7 +3,7 @@ module UART_tx (
     input rst_n,
     input trmt, // asserted for one clock cycle to initiate a transmission
     input [7:0] tx_data,
-    output logic TX,
+    output TX,
     output logic tx_done
 );
 
