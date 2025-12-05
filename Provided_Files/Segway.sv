@@ -41,7 +41,7 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
   //////////////////////////////////////////////////////
   // Instantiate Auth_blk that handles authorization //
   ////////////////////////////////////////////////////
-  Auth_blk iAuth(.clk(clk),.rst_n(rst_n),.RX(RX),.rider_off(rider_off),.pwr_up(pwr_up));
+  Auth_blk iAuth(.clk(clk),.rst_n(rst_n),.rx(RX),.rider_off(rider_off),.pwr_up(pwr_up));
 
 						
   //////////////////////////////////////////////////////////
