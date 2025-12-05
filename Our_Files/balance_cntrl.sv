@@ -80,36 +80,31 @@ module SegwayMath(
     logic signed [12:0] rght_torque_abs;
 
     // pipe the multiply
-    logic signed [19:0] PID_mult_i;
+    logic signed [11:0] PID_ss_i;
     always_ff @ (posedge clk)
-        PID_mult <= PID_mult_i;
+        PID_ss <= PID_ss_i;
 
     // Scale PID_cntrl_piped to ensure a smooth start
-    assign PID_mult_i = PID_cntrl_piped * $signed({1'h0, ss_tmr_piped});
-    assign PID_ss = PID_mult[19:8];
+    assign PID_mult = PID_cntrl_piped * $signed({1'h0, ss_tmr_piped});
+    assign PID_ss_i = PID_mult[19:8];
 
     // pipe this multiply as well
     logic signed [12:0] steer_pot_scale_i;
+    logic signed [12:0] steer_pot_scale_j;
     always_ff @ (posedge clk)
-        steer_pot_scale <= steer_pot_scale_i;
+        steer_pot_scale_j <= steer_pot_scale_i;
+        steer_pot_scale <= steer_pot_scale_j;
 
     // Limit steer pot signal and scale by 3/16
     assign steer_pot_lim =  steer_pot < 12'h200 ? 12'h200 : 
                             steer_pot > 12'hE00 ? 12'hE00 :
                             steer_pot;
-    assign steer_pot_scale_i = $signed(3) * $signed(steer_pot_lim - 12'h800) / $signed(16);
+    assign steer_pot_scale_i = $signed(3) * $signed(steer_pot_lim - 12'h800);
+    assign steer_pot_scale_j = steer_pot_scale_i / $signed(16);
 
     // Torques should be equal if steer not enabled and scaled steer values if steer is enabled
     assign lft_torque = en_steer ? $signed({PID_ss[11], PID_ss}) + steer_pot_scale : $signed({PID_ss[11], PID_ss});
     assign rght_torque = en_steer ? $signed({PID_ss[11], PID_ss}) - steer_pot_scale : $signed({PID_ss[11], PID_ss});
-
-    // pipe the shaped values so propogation is slower
-    logic signed [12:0] lft_shaped_i;
-    logic signed [12:0] rght_shaped_i;
-    always_ff @ (posedge clk) begin
-        lft_shaped <= lft_shaped_i;
-        rght_shaped <= rght_shaped_i;
-    end
 
     // Value of the torque must exceed |min_duty| for the motors to deliver enough power to drive
     assign lft_torque_comp = lft_torque[12] ? lft_torque - $signed(MIN_DUTY) : lft_torque + $signed(MIN_DUTY);
@@ -117,13 +112,13 @@ module SegwayMath(
     assign lft_torque_abs = lft_torque[12] ? -lft_torque : lft_torque; 
     assign lft_shaped_always = lft_torque_abs > LOW_TORQUE_BAND ? lft_torque_comp : lft_torque * $signed(GAIN_MULT);
     // Account for power enable, if not enabled should be 0
-    assign lft_shaped_i = pwr_up ? lft_shaped_always : 13'h0000;
+    assign lft_shaped = pwr_up ? lft_shaped_always : 13'h0000;
 
     // repeat last three steps for the right side
     assign rght_torque_comp = rght_torque[12] ? rght_torque - $signed(MIN_DUTY) : rght_torque + $signed(MIN_DUTY);
     assign rght_torque_abs = rght_torque[12] ? -rght_torque : rght_torque; 
     assign rght_shaped_always = rght_torque_abs > LOW_TORQUE_BAND ? rght_torque_comp : rght_torque * $signed(GAIN_MULT);
-    assign rght_shaped_i = pwr_up ? rght_shaped_always : 13'h0000;
+    assign rght_shaped = pwr_up ? rght_shaped_always : 13'h0000;
 
     // Sature the shaped torques to speeds and ensure they are not too fast
     assign lft_spd_internal =    lft_shaped[12] & ~lft_shaped[11] ? 12'h800 :
