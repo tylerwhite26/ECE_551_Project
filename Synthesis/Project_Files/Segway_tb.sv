@@ -64,8 +64,8 @@ initial begin
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
   $display("Sending power up command...");
-  block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
-  $display("Power up command sent.");
+  block_send_command(8'h47, cmd, send_cmd, clk, send_cmd);
+  $display("Sent power up command.");
   @(posedge clk);  
   $display("Starting first test...");
   rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0

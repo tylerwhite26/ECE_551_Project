@@ -36,15 +36,15 @@ package tb_tasks_pkg;
       input  logic [7:0] cmd_to_send,
       ref    logic [7:0] cmd,
       ref    logic send_cmd,
-      input  logic clk,
-      input  logic cmd_sent
+      ref  logic clk,
+      ref  logic cmd_sent
   );
     begin
       cmd = cmd_to_send;
       send_cmd = 1;
-      @ (posedge clk);
-      send_cmd = 0;
       @ (posedge cmd_sent);
+      $display("Testing");
+      send_cmd = 0;
     end
   endtask
 
@@ -53,7 +53,7 @@ package tb_tasks_pkg;
       input logic [7:0] cmd_to_send,
       ref   logic [7:0] cmd,
       ref   logic send_cmd,
-      input logic clk
+      ref logic clk
   );
     begin
       cmd = cmd_to_send;

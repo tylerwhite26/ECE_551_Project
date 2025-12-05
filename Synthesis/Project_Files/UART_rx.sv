@@ -1,110 +1,100 @@
 module UART_rx (
-    input clk,
-    input rst_n,
-    input RX,
-    input clr_rdy,
-    output [7:0] rx_data,
-    output logic rdy
+    input logic clk,
+    input logic rst_n,
+    input logic RX,
+    input logic clr_rdy,
+    output logic rdy, // Asserted high when byte received. Stays high until startSignal but of next byte starts or clr_rdy asserted
+    output logic [7:0]rx_data
 );
 
-    typedef enum {RESET, RECEIVE} state_t;
+logic shift, startSignal, receiving, set_rdy;
 
-    // internal signals
-    logic [8:0] rx_shift_reg;
-    logic [3:0] bit_cnt;
-    logic set_rdy;
-    logic start;
-    logic shift;
-    logic rxing;
-    logic [12:0] baud_cnt;
-    state_t state;
-    state_t next_state;
-    logic s_m1, s_m2, rx_meta_bit;
 
-    // continuous output assignment
-    assign rx_data = rx_shift_reg[7:0];
-
-    // shift assignment logic, assign shift to 1 when the counter reaches 5208
-    assign shift = baud_cnt[12] & baud_cnt[10] & baud_cnt[6] & baud_cnt[4] & baud_cnt[3];
-
-    // meta stability protection
-    always @ (posedge clk) begin
-        s_m1 <= RX;
-        rx_meta_bit <= s_m1;
+// Double flop RX For meta-stability
+logic RX_sync_0, RX_sync_1;
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        RX_sync_0 <= 1'b1;
+        RX_sync_1 <= 1'b1;
+    end else begin
+        RX_sync_0 <= RX;
+        RX_sync_1 <= RX_sync_0;
     end
+end
 
-    // shift register
-    always_ff @ (posedge clk) begin
-        if (shift) begin
-            rx_shift_reg <= {rx_meta_bit, rx_shift_reg[8:1]};
-        end
+// Baud Counter
+logic [12:0] baud_cnt;
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        baud_cnt <= 13'h0000;
+    end else if (startSignal || shift) begin
+        baud_cnt <= (startSignal) ? 13'd2603 : 13'd5207;
+    end else if (receiving) begin
+        baud_cnt <= baud_cnt - 1;
     end
+end
+assign shift = (baud_cnt == 13'd0);
 
-    // bit counter, reset only on start
-    always_ff @ (posedge clk) begin
-        if (start) // load command given, reset the counter
-            bit_cnt <= 4'h0;
-        else if (shift) // shift command, increment count
-            bit_cnt <= bit_cnt + 1;
+
+// Data
+logic [8:0] rx_shift_reg;
+always_ff @(posedge clk) begin
+    if (shift) begin
+        rx_shift_reg <= {RX_sync_1, rx_shift_reg[8:1]}; // Shift in new bit
     end
+end
+assign rx_data = rx_shift_reg[7:0]; // Only read when rdy is high in testbench
 
-    // TODO
-    // rx_done flop
-    always_ff @ (posedge clk or negedge rst_n) begin
-        if (!rst_n)
-            rdy <= 1'b0;
-        else
-            rdy <= set_rdy & ~start & ~clr_rdy; // hold until next recieve
+// Bit Counter
+logic [3:0] bit_cnt;
+always_ff @(posedge clk) begin
+    if (startSignal) begin
+        bit_cnt <= 0;
+    end else if (shift) begin
+        bit_cnt <= bit_cnt + 1;
     end
+end
 
-    // baud counter, incrementing shift every time the cnt fills up
-    always_ff @ (posedge clk) begin
-        if (start | shift) // reset every time data shifts
-            baud_cnt <= 13'h0000;
-        else if (rxing) // hold high to keep recieving
-            baud_cnt <= baud_cnt + 1;
+// State Machine
+typedef enum logic [0:0] {IDLE, RECEIVE} state_t;
+state_t state, nxt_state;
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        state <= IDLE;
+    end else begin
+        state <= nxt_state;
     end
-
-    // state transition
-    always @ (posedge clk) begin
-        state <= next_state;
+end
+always_comb begin
+    // Default inputs/outputs
+    startSignal = 0;
+    receiving = 0;
+    set_rdy = 0;
+case(state)
+    RECEIVE: if (bit_cnt < 10) begin
+        receiving = 1;
+        nxt_state = RECEIVE;
+    end else begin
+        nxt_state = IDLE;
+        set_rdy = 1;
     end
-    initial begin
-        state = RESET;
-        next_state = RESET;
+    default: if (!RX_sync_1) begin // This is our IDLE State // Default State
+        startSignal = 1;
+        nxt_state = RECEIVE;
+    end else begin
+        nxt_state = IDLE;
     end
+endcase
+end
 
-    // state machine
-    always @(*) begin
-        case (state)
-            RESET : begin
-                if (rx_meta_bit) begin
-                    start = 0;
-                    rxing = 0;
-                    next_state = RESET;
-                end else begin
-                    start = 1;
-                    rxing = 1;
-                    set_rdy = 0;
-                    next_state = RECEIVE;
-                end
-            end
-            RECEIVE : begin
-                if (bit_cnt < 10) begin
-                    start = 0;
-                    rxing = 1;
-                    next_state = RECEIVE;
-                end else begin
-                    start = 0;
-                    rxing = 0;
-                    set_rdy = 1;
-                    next_state = RESET;
-                end
-            end
-        endcase
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        rdy <= 0;
+    end else if (clr_rdy || startSignal) begin
+        rdy <= 0;
+    end else if (set_rdy) begin
+        rdy <= 1;
     end
-
-
-
-
+end
 endmodule
