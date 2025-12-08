@@ -72,10 +72,11 @@ initial begin
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   $display("Sent power up command.");
   $display("Starting first test...");
+  // Wait for a few thousand clock cycles to let the segway stabilize
+  repeat(3000) @(posedge clk);
   rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
   @(posedge clk);
   check_theta_platform(rider_lean, clk);
-
   // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
   rider_lean = 16'h1FFF;
   $display("Starting second test...");
