@@ -45,97 +45,108 @@ SegwayMath u_SegwayMath (
 
 endmodule
 
-module PID #(parameter fast_sim = 1) (
-  input  logic signed [15:0] ptch,       // Pitch signal from inertial interface
-  input  logic clk, // 50MHz clock
-  input  logic pwr_up, // power up signal for ss_tmr
-  input  logic rider_off, // when high, integrator is held at zero
-  input  logic rst_n, // active low reset
-  input  logic vld, // new pitch data valid signal
-  input  logic signed [15:0] ptch_rt,    // Pitch rate for D-term
-  output logic signed [11:0] PID_cntrl,   // Final PID control output
-  output logic [7:0] ss_tmr
+module PID
+#(parameter fast_sim = 1)
+
+(
+    input  signed [15:0] ptch,
+    input  signed [15:0] ptch_rt, // Used for D_Term
+    input pwr_up, // Asserted when segway balance control is powered up. Used to keep ss_tmr at zero until then.
+    input rider_off, // Asserted when no rider detected
+    input vld,
+    input clk,
+    input rst_n,
+    output signed [11:0] PID_cntrl,
+    output logic [7:0] ss_tmr
 );
-
-logic signed [9:0] ptch_err_sat;
-logic signed [17:0] integrator;
+// This is the error and P-Term 
+logic signed [9:0]  ptch_err_sat;
 logic signed [14:0] P_term;
-logic signed [14:0] I_term;
+localparam [4:0] P_COEFF = 5'h09;
+
+
+assign ptch_err_sat = (ptch[15] == 1'b1 && !(&ptch[14:9])) ? 10'sh200 : 
+                        (ptch[15] == 1'b0 && |ptch[14:9]) ? 10'sh1FF : 
+                        $signed(ptch[9:0]);
+assign P_term = $signed(P_COEFF) * ptch_err_sat;
+
+
+// This is for the I term
+logic signed [17:0] ptch_err_sat_extended;
+logic signed [17:0] integrator;
+assign ptch_err_sat_extended = { {8{ptch_err_sat[9]}}, ptch_err_sat };
+logic signed [18:0] sum;
+logic ov;
+
+assign sum = integrator + ptch_err_sat_extended;
+assign ov = (~integrator[17] & ~ptch_err_sat_extended[17] & sum[17]) | 
+            (integrator[17] & ptch_err_sat_extended[17] & ~sum[17]);
+
+logic signed [17:0] intermediate_signal;
+assign intermediate_signal = ((!ov) && vld) ? sum : integrator;
+
+
+
+always_ff@(posedge clk or negedge rst_n)
+    if (!rst_n)
+        integrator <= 18'h00000;
+    else if (rider_off)
+        integrator <= 18'h00000;
+    else 
+        integrator <= intermediate_signal;
+
+// This is for the D_Term
 logic signed [12:0] D_term;
-logic signed [15:0] P_ext, I_ext, D_ext;
-logic signed [15:0] PID_ext;
-logic signed [17:0] overflow_check;
-logic [8:0] ss_tmr_speed;
-logic [26:0] ss_tmr_ext;
-
-    
-
-localparam signed P_COEFF = 5'h09;
+assign D_term = -$signed(ptch_rt >>> 6);
 
 
-
-    // saturate the incoming signed 16-bit ptch to a signed 10-bit ptch_err_sat term.
-    assign ptch_err_sat = (ptch[15]) ? (&ptch[14:9] ? ptch[9:0] : 10'h200) : 
-    (|ptch[14:9] ? 10'h1ff : ptch[9:0]);
-
-    assign P_term = ptch_err_sat * P_COEFF; // P-term calculation
-    
-    // Integrator logic 
-    always_ff @(posedge clk or negedge rst_n) begin
-        if (!rst_n) 
-            integrator <= 18'h0; // reset integrator to zero
-         else if (rider_off) 
-            integrator <= 18'h0; // hold integrator at zero when rider is off
-         else if (vld) begin
-         // stop rolling over check MSB of two numbers being added if they match yet do not match of the addition freeze integrator
-          overflow_check = integrator + ptch_err_sat;
-         if ((integrator[17] != ptch_err_sat[9]) || (integrator[17] == overflow_check[17]))
-            integrator <= integrator + ptch_err_sat; // accumulate error into integrator
-         end
-    end
-
-generate 
-    if (fast_sim)  begin
-        assign I_term = integrator[17] ? (&integrator[16:15] ? integrator[15:1] : 15'h4000) : 
-        (|integrator[16:15] ? 15'h3fff : integrator[15:1]); // fast sim version with coarser resolution saturated
-        assign ss_tmr_speed = 9'h100; // faster soft start timer for fast sim
-    end  else begin
-    assign I_term = { {3{integrator[17]}}, integrator[17:6] };
-    assign ss_tmr_speed = 9'h001; // normal soft start timer speed
+logic [26:0] long_tmr;
+// Generate statement based on if fast_sim is enabled
+generate
+    if (fast_sim) begin : fast_timer
+        always_ff@(posedge clk or negedge rst_n)
+            if (!rst_n)
+                long_tmr <= 27'h0000000;
+            else if (!pwr_up)
+                long_tmr <= 27'h0000000;
+            else if (!(&long_tmr[26:19]))
+                long_tmr <= long_tmr + 256;
+    end else begin : normal_timer
+        always_ff@(posedge clk or negedge rst_n)
+            if (!rst_n)
+                long_tmr <= 27'h0000000;
+            else if (!pwr_up)
+                long_tmr <= 27'h0000000;
+            else if (!(&long_tmr[26:19]))
+                long_tmr <= long_tmr + 1;
     end
 endgenerate
 
-    // Divide ptch_rt by 64 for D-term and then negate
-    assign D_term = -(ptch_rt >>> 6);
+assign ss_tmr = long_tmr[26:19];
 
-    // Extend P, I, and D terms to 16 bits for summation
-    assign P_ext = {P_term[14], P_term}; 
-    // Sign-extend I_term correctly from its MSB (bit 14). The previous code
-    // used bit 11 as the sign which produced incorrect I_ext values and
-    // caused improper PID saturation behavior in fast-sim mode.
-    assign I_ext = {{I_term[14]}, I_term};
-    assign D_ext = {{3{D_term[12]}}, D_term};
 
-    // Get extended PID output before saturation to 12 bits
-    assign PID_ext = (P_ext + I_ext + D_ext); 
+// This is for the final term
+wire signed [15:0] P_term_ext = {P_term[14], P_term};
+wire signed [15:0] D_term_ext = {D_term[12], D_term[12], D_term[12], D_term};
 
-    // Saturate to 12 bits for final output
-    assign PID_cntrl = PID_ext[15] ? (&PID_ext[14:11] ? PID_ext[11:0] : 12'h800) : 
-    (|PID_ext[14:11] ? 12'h7ff : PID_ext[11:0]);
-
-    always_ff @(posedge clk or negedge rst_n) begin
-        if (!rst_n) 
-            ss_tmr_ext <= 27'h0; // reset timer to zero (match 27-bit width)
-        else if (!pwr_up) 
-            ss_tmr_ext <= 27'h0; // hold timer at zero when power is down
-        else if (&ss_tmr_ext[26:19]) 
-         ss_tmr_ext <= ss_tmr_ext + ss_tmr_speed; // increment timer   
+wire signed [14:0] I_term_ext;
+generate
+    if (fast_sim) begin : fast_I_term
+        // Fast sim: tap bits [15:1] with saturation check on bits [17:15]
+        assign I_term_ext = (integrator[17] == 1'b1 && !(&integrator[16:14])) ? 15'sh4000 :
+                           (integrator[17] == 1'b0 && |integrator[16:14]) ? 15'sh3FFF :
+                           integrator[15:1];
+    end else begin : normal_I_term
+        // Normal: tap bits [17:6] with sign extension
+        assign I_term_ext = {{3{integrator[17]}}, integrator[17:6]};
     end
+endgenerate
 
-    assign ss_tmr = ss_tmr_ext[26:19]; // output the top 8 bits of the timer
-    
+wire signed [16:0] addedSum;
+assign addedSum = (P_term_ext) + (D_term_ext) + (I_term_ext);
 
-
+assign PID_cntrl = (addedSum[16] == 1 && !(&addedSum[15:11])) ? 12'sh800 : 
+                        (addedSum[16] == 0 && |addedSum[15:11]) ? 12'sh7FF : addedSum[11:0];
 
 endmodule
 

@@ -61,20 +61,18 @@ initial begin
   ld_cell_lft = 12'h400;// Rider on left
   ld_cell_rght = 12'h400;// Rider on right
   rider_lean = 16'h0000;
+  steerPot = 12'h800; // Centered
   RST_n = 1;      // Start HIGH
   repeat(100) @(posedge clk);
   RST_n = 0;     
   repeat(1000) @(posedge clk);
   RST_n = 1;      // Release Reset
-  repeat(1000) @(posedge clk);
+  repeat(100000) @(posedge clk);
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
-  $display("Sending power up command...");
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
-  $display("Sent power up command.");
-  $display("Starting first test...");
   // Wait for a few thousand clock cycles to let the segway stabilize
-  repeat(3000) @(posedge clk);
+  repeat(1000000) @(posedge clk);
   rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
   @(posedge clk);
   check_theta_platform(rider_lean, clk);

@@ -263,7 +263,7 @@ module SegwayModel(clk,RST_n,SS_n,SCLK,MISO,MOSI,INT,PWM1_lft,PWM2_lft,
 	else if (rght_rise)
 	  time_since_rise_rght <= 12'h000;
 	else
-	  time_since_rise_rght <= time_since_rise_lft + 1;	
+	  time_since_rise_rght <= time_since_rise_rght + 1;	
 
   always_ff @(posedge clk, negedge rst_n)
     if (!rst_n)
