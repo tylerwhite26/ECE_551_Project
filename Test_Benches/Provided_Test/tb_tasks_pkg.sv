@@ -66,7 +66,7 @@ package tb_tasks_pkg;
   // Creates a tilt to test theta_platform waveform
   task automatic check_theta_platform(
       ref logic signed [15:0] rider_lean_var,
-      input logic clk
+      ref logic clk
   );
     begin
       // assume caller has set `rider_lean_var` to desired tilt before calling

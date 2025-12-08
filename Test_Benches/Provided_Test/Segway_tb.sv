@@ -6,7 +6,7 @@ wire A2D_SS_n,A2D_SCLK,A2D_MOSI,A2D_MISO;	// to A2D converter
 wire RX_TX;
 wire PWM1_rght, PWM2_rght, PWM1_lft, PWM2_lft;
 wire piezo,piezo_n;
-wire cmd_sent;
+logic cmd_sent;
 wire rst_n;					// synchronized global reset
 
 ////// Stimulus is declared as type reg ///////
@@ -57,16 +57,20 @@ rst_synch iRST(.clk(clk),.RST_n(RST_n),.rst_n(rst_n));
 initial begin
   clk = 0;
   RST_n = 0;
+  batt = 12'hFFF;       // High battery
+  ld_cell_lft = 12'h400;// Rider on left
+  ld_cell_rght = 12'h400;// Rider on right
   rider_lean = 16'h0000;
-  repeat(3) @(posedge clk);
-  RST_n = 1; 
+  RST_n = 1;      // Start HIGH
+  repeat(1000) @(posedge clk);
+  RST_n = 0;     
+  RST_n = 1;      // Release Reset
   repeat(5) @(posedge clk);
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
   $display("Sending power up command...");
-  block_send_command(8'h47, cmd, send_cmd, clk, send_cmd);
+  block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   $display("Sent power up command.");
-  @(posedge clk);  
   $display("Starting first test...");
   rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
   @(posedge clk);
