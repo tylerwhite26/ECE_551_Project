@@ -69,11 +69,16 @@ package tb_tasks_pkg;
       ref logic clk
   );
     begin
-      // assume caller has set `rider_lean_var` to desired tilt before calling
-      repeat(20) @ (posedge clk);
+      // 1. Wait long enough for the physics to react to the lean
+      // 200,000 clocks @ 10ns = 2ms. You might need even more (e.g., 1,000,000) 
+      // to see the platform converge.
+      repeat(200000) @ (posedge clk);
+      
       // Abruptly set rider_lean to 0 and observe response
       rider_lean_var = 16'h0000;
-      repeat(20) @ (posedge clk);
+      
+      // Wait for it to settle back to 0
+      repeat(200000) @ (posedge clk);
     end
   endtask
 
