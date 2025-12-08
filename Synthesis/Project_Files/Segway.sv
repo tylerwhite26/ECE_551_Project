@@ -34,6 +34,7 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
   wire too_fast;
   wire pwr_up;							// asserted from Auth_blk to balance_cntrl to enable unit
   wire OVR_I_lft,OVR_I_rght;
+  wire OVR_I_shtdwn;
   
   localparam BATT_THRES = 12'h800;
   localparam fast_sim = 0;
@@ -75,7 +76,7 @@ module Segway(clk,RST_n,INERT_SS_n,INERT_MOSI,INERT_SCLK,
   mtr_drv iDRV(.clk(clk),.rst_n(rst_n),.lft_spd(lft_spd),
                .rght_spd(rght_spd),.PWM1_lft(PWM1_lft),.PWM2_lft(PWM2_lft),
 			   .PWM1_rght(PWM1_rght),.PWM2_rght(PWM2_rght),
-			   .OVR_I_lft(OVR_I_lft),.OVR_I_rght(OVR_I_rght));
+			   .OVR_I_lft(OVR_I_lft),.OVR_I_rght(OVR_I_rght), .OVR_I_shtdwn(OVR_I_shtdwn));
 	  
 	  
  ////////////////////////////////////////////////////////////
