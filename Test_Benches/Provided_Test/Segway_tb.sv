@@ -62,10 +62,11 @@ initial begin
   ld_cell_rght = 12'h400;// Rider on right
   rider_lean = 16'h0000;
   RST_n = 1;      // Start HIGH
-  repeat(1000) @(posedge clk);
+  repeat(100) @(posedge clk);
   RST_n = 0;     
+  repeat(1000) @(posedge clk);
   RST_n = 1;      // Release Reset
-  repeat(5) @(posedge clk);
+  repeat(1000) @(posedge clk);
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
   $display("Sending power up command...");
