@@ -61,27 +61,45 @@ initial begin
   ld_cell_lft = 12'h400;// Rider on left
   ld_cell_rght = 12'h400;// Rider on right
   rider_lean = 16'h0000;
-  steerPot = 12'h800; // Centered
+  steerPot = 12'h7ff; // Centered
   RST_n = 1;      // Start HIGH
-  repeat(100) @(posedge clk);
+  repeat(1000) @(posedge clk);
   RST_n = 0;     
   repeat(1000) @(posedge clk);
   RST_n = 1;      // Release Reset
-  repeat(100000) @(posedge clk);
+  repeat(1000) @(posedge clk);
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   // Wait for a few thousand clock cycles to let the segway stabilize
-  repeat(1000000) @(posedge clk);
-  rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
-  @(posedge clk);
-  check_theta_platform(rider_lean, clk);
-  // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
-  rider_lean = 16'h1FFF;
-  $display("Starting second test...");
-  @(posedge clk);
-  check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
-  $display("Second test complete.");
+  repeat(1350000) @(posedge clk);
+    // rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
+    // @(posedge clk);
+    // check_theta_platform(rider_lean, clk);
+    // $display("First test complete.");
+    // // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
+    // rider_lean = 16'h1FFF;
+    // @(posedge clk);
+    // check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
+    // $display("Second test complete.");
+
+  // Things to test: Steering functionality, overspeed functionality, low battery functionality, overcurrent functionality, rider off functionality
+  // Test steering functionality:
+  steerPot = 12'h000; // Full left
+  repeat(100000) @(posedge clk);
+  if (lft_spd >= rght_spd) begin
+    $display("Steering left test failed: left speed %0d not less than right speed %0d", lft_spd, rght_spd);
+    $stop();
+  end
+  steerPot = 12'hFFF; // Full right
+  repeat(100000) @(posedge clk);
+  if (rght_spd >= lft_spd) begin
+    $display("Steering right test failed: right speed %0d not less than left speed %0d", rght_spd, lft_spd);
+    $stop();
+  end
+  steerPot = 12'h7FF; // Centered
+  repeat(100000) @(posedge clk);
+
   $stop();
 end
 
