@@ -28,7 +28,7 @@ assign ptch_acc_product = AZ_comp * $signed(327);
 assign ptch_acc = {{3{ptch_acc_product[25]}},ptch_acc_product[25:13]};
 
 // Determine fusion offset based on pitch acceleration direction
-assign fusion_ptch_offset = (ptch_acc > ptch) ? 12'h400 : -12'h400; 
+assign fusion_ptch_offset = (ptch_acc > ptch) ? 12'h400 : ((ptch_acc < ptch) ? -12'h400 : 27'h0); 
 
 // Integrate pitch rate and apply sensor fusion when valid signal is high
 always_ff @(posedge clk or negedge rst_n) begin

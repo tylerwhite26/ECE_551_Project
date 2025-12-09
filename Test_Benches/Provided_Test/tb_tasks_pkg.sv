@@ -71,13 +71,13 @@ package tb_tasks_pkg;
       // 1. Wait long enough for the physics to react to the lean
       // 200,000 clocks @ 10ns = 2ms. You might need even more (e.g., 1,000,000) 
       // to see the platform converge.
-      repeat(350000) @ (posedge clk);
+      repeat(1000000) @ (posedge clk);
       
       // Abruptly set rider_lean to 0 and observe response
       rider_lean_var = 16'h0000;
       
       // Wait for it to settle back to 0
-      repeat(350000) @ (posedge clk);
+      repeat(1000000) @ (posedge clk);
     end
   endtask
 

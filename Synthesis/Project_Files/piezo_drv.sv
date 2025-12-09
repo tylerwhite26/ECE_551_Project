@@ -259,7 +259,6 @@ always_comb begin
                 piezo = 0;
                 piezo_n = 1;
             end
-            
             if (duration_done) begin
                 if (batt_low)
                     next_state = E7S; 

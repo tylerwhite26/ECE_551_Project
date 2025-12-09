@@ -62,6 +62,8 @@ initial begin
   ld_cell_rght = 12'h400;// Rider on right
   rider_lean = 16'h0000;
   steerPot = 12'h7ff; // Centered
+  OVR_I_lft = 0;
+  OVR_I_rght = 0;
   RST_n = 1;      // Start HIGH
   repeat(1000) @(posedge clk);
   RST_n = 0;     
@@ -73,7 +75,7 @@ initial begin
   // call package task, passing references and clk/signal used by the task
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   // Wait for a few thousand clock cycles to let the segway stabilize
-  repeat(1350000) @(posedge clk);
+  repeat(135000) @(posedge clk);
   // First test: Check that pwr_up is asserted and segway is balancing
   if (!iDUT.pwr_up) begin
     $display("Power up test failed: pwr_up signal not asserted after sending 'G' command");
@@ -90,15 +92,15 @@ initial begin
   end
 
   // Second Test: Test rider lean functionality
-    // rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
-    // @(posedge clk);
-    // check_theta_platform(rider_lean, clk);
-    // $display("First test complete.");
-    // // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
-    // rider_lean = 16'h1FFF;
-    // @(posedge clk);
-    // check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
-    // $display("Second test complete.");
+    rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
+    @(posedge clk);
+    check_theta_platform(rider_lean, clk);
+    $display("First test complete.");
+    // Test a high negative rider_lean value function for 1 million clk cycles.Theta_platform should go low, then high, then converge to 0
+    rider_lean = -16'h0FFF;
+    @(posedge clk);
+    check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
+    $display("Second test complete.");
 
   // Test steering functionality:
   steerPot = 12'h000; // Full left

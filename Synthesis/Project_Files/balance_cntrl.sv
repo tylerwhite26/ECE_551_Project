@@ -145,8 +145,11 @@ endgenerate
 wire signed [16:0] addedSum;
 assign addedSum = (P_term_ext) + (D_term_ext) + (I_term_ext);
 
-assign PID_cntrl = (addedSum[16] == 1 && !(&addedSum[15:11])) ? 12'sh800 : 
+wire signed [11:0] PID_cntrl_raw;
+assign PID_cntrl_raw = (addedSum[16] == 1 && !(&addedSum[15:11])) ? 12'sh800 : 
                         (addedSum[16] == 0 && |addedSum[15:11]) ? 12'sh7FF : addedSum[11:0];
+
+assign PID_cntrl = pwr_up ? PID_cntrl_raw : 12'h000;
 
 endmodule
 

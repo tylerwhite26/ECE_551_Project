@@ -83,7 +83,7 @@ module SegwayModel(clk,RST_n,SS_n,SCLK,MISO,MOSI,INT,PWM1_lft,PWM2_lft,
   logic [7:0] tx_data;
   
   wire NEMO_setup;		// once registers setup it will start the measurement cycle of inertial sensor
-  wire lft_rise,rght_rise					;		// +edge detect on PWM signals
+  wire lft_rise,rght_rise;		// +edge detect on PWM signals
   wire lft_fall, rght_fall;							// -edge detection on PWM signals
   wire any_are_one, last_fall;						// used to detect last_fall which is when calcs are done
   wire signed [15:0] ptch_rate;
