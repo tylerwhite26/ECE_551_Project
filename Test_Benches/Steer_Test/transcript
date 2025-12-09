@@ -177,3 +177,50 @@ run -all
 quit -sim
 # End time: 15:09:41 on Dec 09,2025, Elapsed time: 0:02:39
 # Errors: 0, Warnings: 1
+# Compile of balance_cntrl.sv was successful.
+vsim -gui work.steer_tb
+# vsim -gui work.steer_tb 
+# Start time: 15:13:28 on Dec 09,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.steer_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/steer_tb/iPHYS/*
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(117)
+#    Time: 37063830 ps  Iteration: 1  Instance: /steer_tb
+# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 117
+quit -sim
+# End time: 15:14:54 on Dec 09,2025, Elapsed time: 0:01:26
+# Errors: 0, Warnings: 2
+# Compile of A2D_intf.sv was successful with warnings.
+# Compile of inert_intf.sv was successful with warnings.
+# Compile of mtr_drv.sv was successful with warnings.
+# Compile of Segway.sv was successful with warnings.
+# Compile of steer_en.sv was successful with warnings.
+# Compile of balance_cntrl.sv was successful with warnings.
+# 6 compiles, 0 failed with no errors.
+# Project file C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_test.mpf is write protected, data cannot be saved.
+# Unable to save project.
+# Load canceled
