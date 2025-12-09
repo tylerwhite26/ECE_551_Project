@@ -73,7 +73,7 @@ initial begin
   // call package task, passing references and clk/signal used by the task
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   // Wait for a few thousand clock cycles to let the segway stabilize
-  repeat(1350000) @(posedge clk);
+  repeat(135000) @(posedge clk);
   // First test: Check that pwr_up is asserted and segway is balancing
   if (!iDUT.pwr_up) begin
     $display("Power up test failed: pwr_up signal not asserted after sending 'G' command");

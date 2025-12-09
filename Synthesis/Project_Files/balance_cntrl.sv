@@ -138,7 +138,7 @@ endgenerate
             ss_tmr_ext <= 27'h0; // reset timer to zero (match 27-bit width)
         else if (!pwr_up) 
             ss_tmr_ext <= 27'h0; // hold timer at zero when power is down
-        else if (&ss_tmr_ext[26:19]) 
+        else if (!(&ss_tmr_ext[26:19])) 
          ss_tmr_ext <= ss_tmr_ext + ss_tmr_speed; // increment timer   
     end
 
