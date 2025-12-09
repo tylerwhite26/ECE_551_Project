@@ -40,7 +40,7 @@ module steer_en
         if (FAST_SIM)
             assign tmr_full = &timer[14:0];
         else
-            assign tmr_full = (timer >= 26'h3FE56C0);
+            assign tmr_full = &timer[25:17]; // appoximate to 1.337 seconds
     endgenerate
     always_ff @ (posedge clk or negedge rst_n) begin
         if (!rst_n)
@@ -86,7 +86,7 @@ module steer_en_SM(clk,rst_n,tmr_full,sum_gt_min,sum_lt_min,diff_gt_1_4,
   output logic rider_off;	// held high in intitial state when waiting for sum_gt_min
   
   // You fill out the rest...use good SM coding practices ///
-    typedef enum {INITIAL, WAIT, STEER} state_t;
+    typedef enum logic [1:0] {INITIAL, WAIT, STEER} state_t;
     state_t state;
     state_t next_state;
 

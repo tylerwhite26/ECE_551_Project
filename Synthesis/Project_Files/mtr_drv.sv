@@ -56,7 +56,7 @@ module mtr_drv(clk,rst_n,lft_spd,rght_spd,OVR_I_lft,OVR_I_rght,PWM1_lft,
   ////////////////////
   PWM11 iPWM_lft(.clk(clk), .rst_n(rst_n), .duty(lft_spd_synch[11:1]), .PWM_synch(PWM_synch),
                  .ovr_I_blank(ovr_I_blank), .PWM1(PWM_lft), .PWM2(PWM_lft_n)); 
-  PWM11 iPWM_rght(.clk(clk), .rst_n(rst_n), .duty(rght_spd_synch[11:1]), .PWM_synch(),
+  PWM11 iPWM_rght(.clk(clk), .rst_n(rst_n), .duty(rght_spd_synch[11:1]), .PWM_synch(PWM_synch),
                   .ovr_I_blank(), .PWM1(PWM_rght), .PWM2(PWM_rght_n));
   
   /////////////////////////////////////////////////////////
