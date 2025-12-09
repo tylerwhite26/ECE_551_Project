@@ -86,7 +86,7 @@ module steer_en_SM(clk,rst_n,tmr_full,sum_gt_min,sum_lt_min,diff_gt_1_4,
   output logic rider_off;	// held high in intitial state when waiting for sum_gt_min
   
   // You fill out the rest...use good SM coding practices ///
-    typedef enum [1:0] {INITIAL, WAIT, STEER} state_t;
+    typedef enum logic [1:0] {INITIAL, WAIT, STEER} state_t;
     state_t state;
     state_t next_state;
 
