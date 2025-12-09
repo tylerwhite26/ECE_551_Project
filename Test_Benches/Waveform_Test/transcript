@@ -1,0 +1,43 @@
+# Compile of A2D_intf.sv was successful.
+# Compile of inert_intf.sv was successful.
+# Compile of mtr_drv.sv was successful.
+# Compile of steer_en.sv was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of balance_cntrl.sv was successful.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 14:42:24 on Dec 09,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/theta_platform
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+quit -sim
+# End time: 14:44:13 on Dec 09,2025, Elapsed time: 0:01:49
+# Errors: 0, Warnings: 5

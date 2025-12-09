@@ -1,0 +1,575 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test
+vA2D_intf
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1765313375
+!i10b 1
+!s100 fcWCA`6_8AD2HK2[nH?J13
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I=[hYn:i1MfKUB[PKkifnB1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+S1
+Z4 dC:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test
+Z5 w1765312864
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/A2D_intf.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/A2D_intf.sv
+!i122 1
+L0 1 106
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z7 !s108 1765313375.000000
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/A2D_intf.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/A2D_intf.sv|
+!i113 1
+Z8 o-work work -sv
+Z9 tCvgOpt 0
+n@a2@d_intf
+vADC128S_FC
+R0
+R1
+!i10b 1
+!s100 n1UPndo6Ol_azTTf4hd=N2
+R2
+I8n:HZi`NmCUHY8h@fgB1:2
+R3
+S1
+R4
+Z10 w1763999960
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv
+!i122 2
+L0 1 114
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv|
+!i113 1
+R8
+R9
+n@a@d@c128@s_@f@c
+vAuth_blk
+R0
+R1
+!i10b 1
+!s100 WF1jlNdR_Y@nJ^J_^@KmG1
+R2
+I@d=ZoNN1MaGi=X_dJ]1BT1
+R3
+S1
+R4
+Z11 w1765223579
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv
+!i122 3
+L0 1 82
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv|
+!i113 1
+R8
+R9
+n@auth_blk
+vbalance_cntrl
+R0
+Z12 !s110 1765314416
+!i10b 1
+!s100 SVcGHJlYSdH19F_E=EQiz2
+R2
+IS[2]JXeQ6I7Z;b`^=LCnD0
+R3
+S1
+R4
+Z13 w1765314390
+Z14 8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/balance_cntrl.sv
+Z15 FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/balance_cntrl.sv
+!i122 21
+L0 1 46
+R6
+r1
+!s85 0
+31
+Z16 !s108 1765314416.000000
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/balance_cntrl.sv|
+Z17 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/balance_cntrl.sv|
+!i113 1
+R8
+R9
+vinert_intf
+R0
+R1
+!i10b 1
+!s100 2:_ZKnRAJd3z54g7fm`1I0
+R2
+ILQW=<o60lSTcB3YnAAJo;3
+R3
+S1
+R4
+R5
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inert_intf.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inert_intf.sv
+!i122 5
+L0 1 215
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inert_intf.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inert_intf.sv|
+!i113 1
+R8
+R9
+vinertial_integrator
+R0
+R1
+!i10b 1
+!s100 _:K8K0`h]kNNP`IFT[ki01
+R2
+ISG7TXX2=UNVa]=knK>l<03
+R3
+S1
+R4
+w1764605499
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inertial_integrator.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inertial_integrator.sv
+!i122 6
+L0 3 44
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inertial_integrator.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inertial_integrator.sv|
+!i113 1
+R8
+R9
+vmtr_drv
+R0
+R1
+!i10b 1
+!s100 J0Hz9:@9]nZLGVY;bCEdb2
+R2
+I2XD5i<mh=n_MQ5NZGl3TB3
+R3
+S1
+R4
+R5
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/mtr_drv.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/mtr_drv.sv
+!i122 7
+L0 1 138
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/mtr_drv.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/mtr_drv.sv|
+!i113 1
+R8
+R9
+vPID
+R0
+R12
+!i10b 1
+!s100 SNK=`k4?KlJ8z0WC3?HM>0
+R2
+IhCfBJ9kK^^NY17zSkEk5G2
+R3
+S1
+R4
+R13
+R14
+R15
+!i122 21
+L0 48 103
+R6
+r1
+!s85 0
+31
+R16
+Z18 !s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/balance_cntrl.sv|
+R17
+!i113 1
+R8
+R9
+n@p@i@d
+vpiezo_drv
+R0
+R1
+!i10b 1
+!s100 gzi]BNUgMzO]f9A8U?`ET1
+R2
+IK;>4MSbCOM`CDKOMlbjH[2
+R3
+S1
+R4
+w1764606478
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv
+!i122 8
+L0 1 275
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv|
+!i113 1
+R8
+R9
+vPWM11
+R0
+Z19 !s110 1765313376
+!i10b 1
+!s100 oiXLga[6ioM2_a=0FZfLX2
+R2
+I4KC]4b]jH0XiQMi2eO7QT2
+R3
+S1
+R4
+w1759160747
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/PWM11.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/PWM11.sv
+!i122 9
+L0 1 55
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/PWM11.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/PWM11.sv|
+!i113 1
+R8
+R9
+n@p@w@m11
+vrst_synch
+R0
+R19
+!i10b 1
+!s100 j:ASV^Va`=gO@l=c8QPaB3
+R2
+IKXU`QTP<g81KNV3mcf7ma1
+R3
+S1
+R4
+w1764000413
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/rst_synch.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/rst_synch.sv
+!i122 10
+L0 1 22
+R6
+r1
+!s85 0
+31
+Z20 !s108 1765313376.000000
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/rst_synch.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/rst_synch.sv|
+!i113 1
+R8
+R9
+vSegway
+R0
+R19
+!i10b 1
+!s100 `=_jJG]zk_mDIdI8_>f8X1
+R2
+I34ERi?Ko0z2OkE9EV[4f70
+R3
+S1
+R4
+w1765230725
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv
+!i122 11
+L0 1 103
+R6
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv|
+!i113 1
+R8
+R9
+n@segway
+vSegwayMath
+R0
+R12
+!i10b 1
+!s100 0MV9emMnK9[i?Jc4nmGWl2
+R2
+IH5HW^k3n1YSD2BjAG9Sgc1
+R3
+S1
+R4
+R13
+R14
+R15
+!i122 21
+L0 152 134
+R6
+r1
+!s85 0
+31
+R16
+R18
+R17
+!i113 1
+R8
+R9
+n@segway@math
+vSegwayModel
+R0
+R19
+!i10b 1
+!s100 iz^E?Y=h=5@SlL;FS;BlO2
+R2
+IaXNZ`TAPmB10f4Sd;71iX0
+R3
+S1
+R4
+R10
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv
+!i122 12
+L0 1 454
+R6
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv|
+!i113 1
+R8
+R9
+n@segway@model
+vSPI_ADC128S
+R0
+R19
+!i10b 1
+!s100 93oj0i;UV@::cHMPGHMJ>1
+R2
+IbhQY05^4M5YYWCONT;52>0
+R3
+S1
+R4
+R10
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv
+!i122 13
+L0 1 140
+R6
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv|
+!i113 1
+R8
+R9
+n@s@p@i_@a@d@c128@s
+vSPI_mnrch
+R0
+R19
+!i10b 1
+!s100 `NjXhH<D:0?S4g0FDA6_:2
+R2
+IGZeQl3eXaF@3`gcjnlMCC3
+R3
+S1
+R4
+w1764607522
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_mnrch.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_mnrch.sv
+!i122 14
+L0 1 143
+R6
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_mnrch.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_mnrch.sv|
+!i113 1
+R8
+R9
+n@s@p@i_mnrch
+vsteer_en
+R0
+R19
+!i10b 1
+!s100 bF;FlT[Z3gK:]>[60V>e41
+R2
+IG2BN]P@0E5@9mL4TQ9_h70
+R3
+S1
+R4
+R5
+Z21 8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/steer_en.sv
+Z22 FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/steer_en.sv
+!i122 15
+L0 1 54
+R6
+r1
+!s85 0
+31
+R20
+Z23 !s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/steer_en.sv|
+Z24 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/steer_en.sv|
+!i113 1
+R8
+R9
+vsteer_en_SM
+R0
+R19
+!i10b 1
+!s100 @F21POb=:K_=kB7YD9EWI2
+R2
+IM>LX1:GBLN6gLgfNbA8YV0
+R3
+S1
+R4
+R5
+R21
+R22
+!i122 15
+L0 58 83
+R6
+r1
+!s85 0
+31
+R20
+R23
+R24
+!i113 1
+R8
+R9
+nsteer_en_@s@m
+vsteer_tb
+R0
+DXx4 work 12 tb_tasks_pkg 0 22 ^YgV0[FOULF0R4J50SeAg2
+!s110 1765313462
+!i10b 1
+!s100 jzKnVMX_]Ci5?0<]L9^@J2
+R2
+I:0f3C7Z?];Z1Okn5ohQ]`2
+R3
+S1
+R4
+w1765313456
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv
+!i122 18
+L0 1 123
+R6
+r1
+!s85 0
+31
+!s108 1765313462.000000
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv|
+!i113 1
+R8
+R9
+Xtb_tasks_pkg
+R0
+R1
+!i10b 1
+!s100 5o]G]ABgaUm;hWQc^CBO10
+R2
+I^YgV0[FOULF0R4J50SeAg2
+V^YgV0[FOULF0R4J50SeAg2
+S1
+R4
+R11
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/tb_tasks_pkg.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/tb_tasks_pkg.sv
+!i122 0
+L0 1 0
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/tb_tasks_pkg.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/tb_tasks_pkg.sv|
+!i113 1
+R8
+R9
+vUART_rx
+R0
+Z25 !s110 1765313377
+!i10b 1
+!s100 _4@BkzY8E_HB@Ib>`bnc;2
+R2
+IU6kdn5JO^4L5o7S5oWkjW2
+R3
+S1
+R4
+w1764953511
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_rx.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_rx.sv
+!i122 16
+L0 1 100
+R6
+r1
+!s85 0
+31
+R20
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_rx.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_rx.sv|
+!i113 1
+R8
+R9
+n@u@a@r@t_rx
+vUART_tx
+R0
+R25
+!i10b 1
+!s100 h^LbLWlY53HOmkoEFgFE32
+R2
+ID`L5RET6eCkPC43F2Vhm72
+R3
+S1
+R4
+R11
+8C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_tx.sv
+FC:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_tx.sv
+!i122 17
+L0 1 110
+R6
+r1
+!s85 0
+31
+!s108 1765313377.000000
+!s107 C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_tx.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_tx.sv|
+!i113 1
+R8
+R9
+n@u@a@r@t_tx

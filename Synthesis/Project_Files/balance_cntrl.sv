@@ -1,47 +1,48 @@
-module balance_cntrl #(parameter fast_sim = 1) (
-  input  logic signed [15:0] ptch,       // Pitch signal from inertial interface
-  input  logic        [11:0] steer_pot,   // Unsigned 12-bit steering potentiometer
-  input  logic               en_steer,    // Steering enable
-  input  logic clk, // 50MHz clock
-  input  logic pwr_up, // power up signal for ss_tmr
-  input  logic rider_off, // when high, integrator is held at zero
-  input  logic rst_n, // active low reset
-  input  logic vld, // new pitch data valid signal
-  input  logic signed [15:0] ptch_rt,    // Pitch rate for D-term
-  output logic signed [11:0] lft_spd,     // Signed 12-bit left motor speed
-  output logic signed [11:0] rght_spd,    // Signed 12-bit right motor speed
-  output logic               too_fast     // Indicates overspeed
+module balance_cntrl (
+    input logic clk,
+    input logic rst_n,
+    input logic vld, // New inertial sensor reading is valid
+    input logic pwr_up, // when segway balance control is powered up
+    input logic rider_off, // asserted when no rider detected
+    input logic signed [15:0] ptch, // Signed 16-bit pitch signal from inertial_interface
+    input logic signed [15:0] ptch_rt, // Signed 16-bit pitch rate from inertial_interface. Used for D_term.
+    input logic [11:0] steer_pot,
+    input logic en_steer,
+    output logic signed [11:0] lft_spd, 
+    output logic signed [11:0] rght_spd,
+    output logic too_fast
 );
 
-// Internal signals to connect submodules
-logic signed [11:0] PID_cntrl;
-logic [7:0] ss_tmr;
+logic [7:0] ss_tmr; // soft start timer for SegwayMath
+logic signed [11:0] PID_cntrl; // 12-bit signed result of PID control
+parameter FAST_SIM = 1'b1;
 
-PID #(.fast_sim(fast_sim)) u_PID (
-  .ptch(ptch),
-  .clk(clk),
-  .pwr_up(pwr_up),
-  .rider_off(rider_off),
-  .rst_n(rst_n),
-  .vld(vld),
-  .ptch_rt(ptch_rt),
-  .PID_cntrl(PID_cntrl),
-  .ss_tmr(ss_tmr)
-);
+// Instantiate PID
 
-SegwayMath u_SegwayMath (
-    .PID_cntrl(PID_cntrl),
-    .ss_tmr(ss_tmr),
+PID #(.fast_sim(FAST_SIM)) pid_inst (
     .clk(clk),
     .rst_n(rst_n),
-  .steer_pot(steer_pot),
-  .en_steer(en_steer),
-  .pwr_up(pwr_up),
-  .lft_spd(lft_spd),
-  .rght_spd(rght_spd),
-  .too_fast(too_fast)
+    .vld(vld),
+    .pwr_up(pwr_up),
+    .rider_off(rider_off),
+    .ptch(ptch),
+    .ptch_rt(ptch_rt),
+    .ss_tmr(ss_tmr),
+    .PID_cntrl(PID_cntrl)
 );
 
+// Instantiate SegwayMath
+
+SegwayMath segway_math_inst (
+    .PID_cntrl(PID_cntrl),
+    .ss_tmr(ss_tmr),
+    .steer_pot(steer_pot),
+    .en_steer(en_steer),
+    .pwr_up(pwr_up),
+    .lft_spd(lft_spd),
+    .rght_spd(rght_spd),
+    .too_fast(too_fast)
+);
 
 endmodule
 
@@ -99,6 +100,8 @@ always_ff@(posedge clk or negedge rst_n)
 logic signed [12:0] D_term;
 assign D_term = -$signed(ptch_rt >>> 6);
 
+// P_term calculation
+assign P_term = ptch_err_sat * $signed(P_COEFF);
 
 logic [26:0] long_tmr;
 // Generate statement based on if fast_sim is enabled
@@ -151,45 +154,79 @@ assign PID_cntrl = (addedSum[16] == 1 && !(&addedSum[15:11])) ? 12'sh800 :
 endmodule
 
 module SegwayMath (
-    input  logic               clk,
-    input  logic               rst_n,
-    input  logic signed [11:0] PID_cntrl,   // Signed 12-bit control from PID
-    input  logic        [7:0]  ss_tmr,      // Unsigned 8-bit scaling quantity
-    input  logic        [11:0] steer_pot,   // Unsigned 12-bit steering potentiometer
-    input  logic               en_steer,    // Steering enable
-    input  logic               pwr_up,      // Power-up signal
-
-    output logic signed [11:0] lft_spd,     // Signed 12-bit left motor speed
-    output logic signed [11:0] rght_spd,    // Signed 12-bit right motor speed
-    output logic               too_fast     // Indicates overspeed
+    input logic signed [11:0] PID_cntrl,
+    input logic [7:0] ss_tmr,
+    input logic [11:0] steer_pot,
+    input logic en_steer,
+    input logic pwr_up,
+    output logic signed [11:0] lft_spd, 
+    output logic signed [11:0] rght_spd,
+    output logic too_fast
 );
-  
 
-logic signed [19:0] PID_ext; // Signed 20-bit scaled PID
+// local parameters
+localparam MIN_DUTY = 13'h0A8;
+localparam LOW_TORQUE_BAND = 7'h2A;
+localparam GAIN_MULT = 4'h4;
+localparam MAX_SPEED = 12'd1536;
+
+// Internal signals
+// for steering
+logic signed [19:0] cntrl_times_ss;
 logic signed [11:0] PID_ss;
-logic signed [12:0] PID_ss_ext;
-logic signed [11:0] steer_clip; // Signed 12-bit steering adjustment
-logic signed [11:0] steer_pot_sat;
-logic signed [11:0] steer_scaled;    // 3/16 scaled version
-logic signed [12:0] lft_torque;   // Signed 13-bit left motor temp
-logic signed [12:0] rght_torque;  // Signed 13-bit right motor
-logic [12:0] lft_abs; // Signed 13-bit left motor abs
-logic [12:0] rght_abs;    // Signed 13-bit right motor abs
+logic unsigned [11:0] steer_pot_lmt;
+logic signed [12:0] steer_diff;
+logic signed [12:0] steer_rght_shft_3; // steer_diff * 2/16
+logic signed [12:0] steer_rght_shft_4; // steer_diff * 1/16
+logic signed [12:0] steer_inpt_fraction; // fraction of steer input to be added/subtracted to error
+logic signed [12:0] non_zero_lft_torque;
+logic signed [12:0] non_zero_rght_torque;
+logic signed [12:0] lft_torque;
+logic signed [12:0] rght_torque;
+// for deadzone shaping
+logic signed [12:0] lft_torque_comp_high_gain;
+logic signed [12:0] lft_torque_comp_low_gain;
 logic signed [12:0] lft_torque_comp;
-logic signed [12:0] rght_torque_comp;
+logic signed [16:0] lft_torque_deadzone;
+logic signed [12:0] lft_torque_pwrd_up;
 logic signed [12:0] lft_shaped;
+logic signed [12:0] rght_torque_comp_high_gain;
+logic signed [12:0] rght_torque_comp_low_gain;
+logic signed [12:0] rght_torque_comp;
+logic signed [12:0] rght_torque_deadzone;
+logic signed [12:0] rght_torque_pwrd_up;
 logic signed [12:0] rght_shaped;
+logic signed [12:0] lft_torque_abs_val;
+logic signed [12:0] rght_torque_abs_val;
 
-localparam pot_ctr = 12'h7ff; // center position of pot
-localparam pot_low = 12'h200; // low position of pot
-localparam pot_hgh = 12'hE00; // high position of pot
-localparam signed [12:0] MIN_DUTY = 13'h0A8; // minimum duty cycle to overcome motor deadband
-localparam signed [6:0] LOW_TORQUE_BAND = 7'h2A; // torque band for min duty cycle
-localparam signed [3:0] GAIN_MULT = 4'h4; // gain multiplier for speed calculation
-localparam signed [11:0] MAX_SPEED = 12'h600; // maximum speed limit
+// Scaling with soft start
+assign cntrl_times_ss = PID_cntrl * $signed({1'b0, ss_tmr});
+assign PID_ss = cntrl_times_ss[19:8]; // Divide by 256
 
+// Calculate steering input
+// limit steer_pot
+assign steer_pot_lmt = (steer_pot < 12'h200) ? 12'h200 :
+                       (steer_pot > 12'hE00) ? 12'hE00 :
+                       steer_pot;
+assign steer_diff = $signed({1'b0, steer_pot_lmt}) - $signed({1'b0, 12'h7ff}); // Center at 0
+assign steer_rght_shft_3 = $signed(steer_diff) >>> 3; // multiply by 2/16
+assign steer_rght_shft_4 = $signed(steer_diff) >>> 4; // multiply by 1/16
+assign steer_inpt_fraction = steer_rght_shft_3 + steer_rght_shft_4; // multiply by 3/16
 
+// Calculate left and right torque
+assign non_zero_lft_torque = {PID_ss[11], PID_ss} + steer_inpt_fraction;
+assign non_zero_rght_torque = {PID_ss[11], PID_ss} - steer_inpt_fraction;
+assign lft_torque = (en_steer) ? non_zero_lft_torque : {PID_ss[11], PID_ss};
+assign rght_torque = (en_steer) ? non_zero_rght_torque : {PID_ss[11], PID_ss};
 
+// Deadzone shaping for left dc motor torque
+assign lft_torque_comp_high_gain = lft_torque - $signed(MIN_DUTY);
+assign lft_torque_comp_low_gain = lft_torque + $signed(MIN_DUTY);
+assign lft_torque_comp = (lft_torque[12]) ? lft_torque_comp_high_gain : lft_torque_comp_low_gain;
+assign lft_torque_deadzone = lft_torque * $signed(GAIN_MULT);
+assign lft_torque_abs_val = (lft_torque < 0) ? -lft_torque : lft_torque;
+assign lft_torque_pwrd_up = (lft_torque_abs_val < LOW_TORQUE_BAND) ? lft_torque_deadzone : lft_torque_comp;
+assign lft_shaped = (pwr_up) ? lft_torque_pwrd_up : $signed(13'h0000);
 
 // Pipelining: register PID inputs and soft-start multiply to increase flop count
 logic signed [11:0] PID_cntrl_piped;
@@ -258,5 +295,13 @@ always_ff @(posedge clk or negedge rst_n) begin
 end
 
 
+// Final saturation and over speed detect
+assign lft_spd = (lft_shaped[12] && !lft_shaped[11]) ? $signed(12'b100000000000) : // Negative saturation
+                 (!lft_shaped[12] && lft_shaped[11]) ? $signed(12'b011111111111) : // Positive saturation
+                 lft_shaped[11:0]; // lft_shaped within range
+assign rght_spd = (rght_shaped[12] && !rght_shaped[11]) ? $signed(12'b100000000000) : // Negative saturation
+                  (!rght_shaped[12] && rght_shaped[11]) ? $signed(12'b011111111111) : // Positive saturation
+                  rght_shaped[11:0]; // lft_shaped within range
+assign too_fast = (lft_spd > $signed(MAX_SPEED)) || (rght_spd > $signed(MAX_SPEED));
 
 endmodule
