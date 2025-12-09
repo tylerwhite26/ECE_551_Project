@@ -43,7 +43,6 @@ package tb_tasks_pkg;
       cmd = cmd_to_send;
       send_cmd = 1;
       @ (posedge cmd_sent);
-      $display("Testing");
       send_cmd = 0;
     end
   endtask

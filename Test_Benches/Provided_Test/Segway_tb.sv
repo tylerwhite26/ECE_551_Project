@@ -68,11 +68,28 @@ initial begin
   repeat(1000) @(posedge clk);
   RST_n = 1;      // Release Reset
   repeat(1000) @(posedge clk);
+  $display("Beginning Tests...");
   // Send 'G' to power up segway
   // call package task, passing references and clk/signal used by the task
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   // Wait for a few thousand clock cycles to let the segway stabilize
   repeat(1350000) @(posedge clk);
+  // First test: Check that pwr_up is asserted and segway is balancing
+  if (!iDUT.pwr_up) begin
+    $display("Power up test failed: pwr_up signal not asserted after sending 'G' command");
+    $stop();
+  end else begin
+    $display("Power up test passed: pwr_up signal asserted after sending 'G' command");
+  end
+  // First test: Check if pwr_up is asserted and segway is balancing
+  if (!iDUT.pwr_up || (iPHYS.theta_platform != 0)) begin
+    $display("Balancing test failed: pwr_up signal not asserted or theta_platform out of range (%0d)", iPHYS.theta_platform);
+    $stop();
+  end else begin
+    $display("Balancing test passed: pwr_up signal asserted and theta_platform is 0 (%0d)", iPHYS.theta_platform);
+  end
+
+  // Second Test: Test rider lean functionality
     // rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
     // @(posedge clk);
     // check_theta_platform(rider_lean, clk);
@@ -83,22 +100,56 @@ initial begin
     // check_theta_platform(rider_lean, clk); // Theta_platform goes low then high and converges to 0. When rider_lean = 0, theta_platform should go positive and converge to 0         
     // $display("Second test complete.");
 
-  // Things to test: Steering functionality, overspeed functionality, low battery functionality, overcurrent functionality, rider off functionality
   // Test steering functionality:
   steerPot = 12'h000; // Full left
   repeat(100000) @(posedge clk);
-  if (lft_spd >= rght_spd) begin
-    $display("Steering left test failed: left speed %0d not less than right speed %0d", lft_spd, rght_spd);
+  if (iDUT.iBAL.lft_spd >= iDUT.iBAL.rght_spd) begin
+    $display("Steering left test failed: left speed %0d not less than right speed %0d", iDUT.iBAL.lft_spd, iDUT.iBAL.rght_spd);
     $stop();
+  end else begin
+    $display("Steering left test passed: left speed %0d less than right speed %0d", iDUT.iBAL.lft_spd, iDUT.iBAL.rght_spd);
   end
   steerPot = 12'hFFF; // Full right
   repeat(100000) @(posedge clk);
-  if (rght_spd >= lft_spd) begin
-    $display("Steering right test failed: right speed %0d not less than left speed %0d", rght_spd, lft_spd);
+  if (iDUT.iBAL.rght_spd >= iDUT.iBAL.lft_spd) begin
+    $display("Steering right test failed: right speed %0d not less than left speed %0d", iDUT.iBAL.rght_spd, iDUT.iBAL.lft_spd);
     $stop();
+  end else begin 
+    $display("Steering right test passed: right speed %0d less than left speed %0d", iDUT.iBAL.rght_spd, iDUT.iBAL.lft_spd);
   end
   steerPot = 12'h7FF; // Centered
   repeat(100000) @(posedge clk);
+  if (iDUT.iBAL.rght_spd != iDUT.iBAL.lft_spd) begin
+    $display("Steering center test failed: right speed %0d not equal to left speed %0d", iDUT.iBAL.rght_spd, iDUT.iBAL.lft_spd);
+    $stop();
+  end else begin 
+    $display("Steering center test passed: right speed %0d equal to left speed %0d", iDUT.iBAL.rght_spd, iDUT.iBAL.lft_spd);
+  end
+
+  // Test rider_off then shut down
+  ld_cell_lft = 12'h000;
+  ld_cell_rght = 12'h000;
+  repeat(100000) @(posedge clk);
+  if (!iDUT.iSTR.rider_off) begin
+    $display("Rider off test failed: rider_off signal not asserted when load cells are zero");
+    $stop();
+  end else begin
+    $display("Rider off test passed: rider_off signal asserted when load cells are zero");
+  end
+
+  // Test sending 'S' command to shut down segway
+  block_send_command(8'h53, cmd, send_cmd, clk, cmd_sent);
+  repeat(1350000) @(posedge clk);
+  // Since rider_off is high and we sent 'S', pwr_up should be deasserted
+  if (iDUT.pwr_up || !iDUT.iSTR.rider_off) begin
+    $display("Segway shutdown test failed: pwr_up signal still asserted after sending 'S' command and rider_off is high");
+    $stop();
+  end else begin
+    $display("Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high");
+  end 
+  // More things to test: Overspeed functionality, low battery functionality, overcurrent functionality,
+  $display("All tests passed.");
+
 
   $stop();
 end
