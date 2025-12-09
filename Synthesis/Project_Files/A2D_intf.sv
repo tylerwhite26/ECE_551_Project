@@ -55,7 +55,7 @@ assign SPI_wt_data =    (update_readout_enable == 2'b00) ?  {2'd0, 3'd0, 11'd0} 
                                                             16'd0; // default to zeros, never reached
 
 
-typedef enum logic [2:0] {IDLE, CONVERT, INCREMENT, BUFF} state_t;
+typedef enum logic [1:0] {IDLE, CONVERT, INCREMENT, BUFF} state_t;
 state_t state, next_state;
 always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n) begin

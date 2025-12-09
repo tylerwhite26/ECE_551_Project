@@ -1,7 +1,7 @@
-module inert_intf(clk,rst_n,ptch,ptch_rt,vld,SS_n,SCLK,
+module inert_intf #(parameter fast_sim = 1)(clk,rst_n,ptch,ptch_rt,vld,SS_n,SCLK,
                   MOSI,MISO,INT);
  
-  parameter fast_sim = 1;
+  
  
   input clk, rst_n;
   input MISO;					// SPI input from inertial sensor

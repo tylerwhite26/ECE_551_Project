@@ -36,7 +36,7 @@ set_input_delay -clock clk 0.25 $prim_inputs
 # Set Drive Strength of Inputs #
 ################################
 set_driving_cell -lib_cell NAND2X2_RVT -library saed32rvt_tt0p85v25c $prim_inputs
-set_drive 0.0001 rst_n
+set_drive 0.0001 RST_n
 
 ################################
 # Set Output Delay Constraints #
