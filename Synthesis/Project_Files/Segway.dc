@@ -19,6 +19,7 @@ read_file -format sverilog {./Auth_blk.sv\
 # Set Current Design to top level #
 ###################################
 set current_design Segway
+link
 
 #######################
 # Constrain the clock #
@@ -71,7 +72,7 @@ set_multicycle_path 2 -hold -from [find pin iBAL/iCNTRL/ss_tmr_reg*/CLK]
 # Flatten hierarchy #
 #####################
 ungroup -all -flatten
-compile -incremental_mapping -map_effort high
+compile -map_effort high
 
 ###########################
 # Timing and Area Reports #
