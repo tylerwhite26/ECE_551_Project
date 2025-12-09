@@ -1,0 +1,882 @@
+# Compile of tb_tasks_pkg.sv was successful.
+# Compile of wvfm_tb.sv was successful.
+# Compile of A2D_intf.sv was successful.
+# Compile of ADC128S_FC.sv was successful.
+# Compile of Auth_blk.sv was successful.
+# Compile of ble_module.sv was successful.
+# Compile of inert_intf.sv was successful.
+# Compile of inertial_integrator.sv was successful.
+# Compile of mtr_drv.sv was successful.
+# Compile of piezo_drv.sv was successful.
+# Compile of PWM11.sv was successful.
+# Compile of rst_synch.sv was successful.
+# Compile of Segway.sv was successful.
+# Compile of SegwayModel.sv was successful with warnings.
+# Compile of SPI_ADC128S.sv was successful.
+# Compile of SPI_mnrch.sv was successful.
+# Compile of steer_en.sv was successful.
+# Compile of UART_rx.sv was successful.
+# Compile of UART_tx.sv was successful.
+# Compile of balance_cntrl.sv was successful.
+# 20 compiles, 0 failed with no errors.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 15:01:03 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/wvfm_tb/iDUT/iBAL/ptch
+add wave -position insertpoint  \
+sim:/wvfm_tb/iDUT/pwr_up
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/rider_lean
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/theta_platform
+run -all
+# Testing
+quit -sim
+# End time: 15:17:23 on Dec 08,2025, Elapsed time: 0:16:20
+# Errors: 0, Warnings: 4
+# Compile of wvfm_tb.sv was successful.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 15:17:36 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/wvfm_tb/iDUT/iBAL/ptch
+add wave -position insertpoint  \
+sim:/wvfm_tb/iDUT/pwr_up
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/rider_lean
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/theta_platform
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(85)
+#    Time: 83063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 85
+quit -sim
+# End time: 15:25:56 on Dec 08,2025, Elapsed time: 0:08:20
+# Errors: 0, Warnings: 2
+# Compile of wvfm_tb.sv was successful.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 15:26:38 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+run -all
+# Testing
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/rider_lean
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/theta_platform
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(85)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 85
+add wave -position insertpoint  \
+sim:/wvfm_tb/iA2D/ld_cell_lft
+add wave -position insertpoint  \
+sim:/wvfm_tb/iA2D/ld_cell_rght
+add wave -position insertpoint  \
+sim:/wvfm_tb/iA2D/steerPot
+add wave -position insertpoint  \
+sim:/wvfm_tb/iA2D/batt
+add wave -position insertpoint  \
+sim:/wvfm_tb/ld_cell_lft
+add wave -position insertpoint  \
+sim:/wvfm_tb/ld_cell_rght
+add wave -position insertpoint  \
+sim:/wvfm_tb/steerPot
+add wave -position insertpoint  \
+sim:/wvfm_tb/batt
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(85)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 85
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iDRV/*
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(85)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 85
+quit -sim
+# Compile of wvfm_tb.sv was successful.
+# End time: 15:45:02 on Dec 08,2025, Elapsed time: 0:18:24
+# Errors: 0, Warnings: 2
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 15:45:09 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/theta_platform
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iDRV/*
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iAuth/*
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iSTR/*
+run -all
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+quit -sim
+# End time: 15:52:18 on Dec 08,2025, Elapsed time: 0:07:09
+# Errors: 0, Warnings: 1
+# Compile of Segway.sv was successful.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 15:52:37 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/wvfm_tb/iPHYS/theta_platform
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+quit -sim
+# End time: 15:55:35 on Dec 08,2025, Elapsed time: 0:02:58
+# Errors: 0, Warnings: 2
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 15:59:39 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iDRV/iPWM_lft/*
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+add wave -position insertpoint sim:/wvfm_tb/iPHYS/*
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+quit -sim
+# End time: 16:29:09 on Dec 08,2025, Elapsed time: 0:29:30
+# Errors: 0, Warnings: 1
+# Compile of SPI_mnrch.sv was successful.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 16:30:14 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/wvfm_tb/iPHYS/*
+run -all
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# Testing
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iDRV/iPWM_lft/*
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# Testing
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+restart
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iDRV/*
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# Testing
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iBAL/*
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# Testing
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# WARNING: Only channels 0,4,5,6 of A2D valid for this version of ADC128S
+# 
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+quit -sim
+# End time: 16:58:35 on Dec 08,2025, Elapsed time: 0:28:21
+# Errors: 0, Warnings: 1
+# Load canceled
+# Compile of SPI_mnrch.sv was successful.
+vsim -gui work.wvfm_tb
+# vsim -gui work.wvfm_tb 
+# Start time: 16:59:21 on Dec 08,2025
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg
+# Loading work.wvfm_tb
+# Loading work.SegwayModel
+# Loading work.ADC128S_FC
+# Loading work.SPI_ADC128S
+# Loading work.Segway
+# Loading work.Auth_blk
+# Loading work.UART_rx
+# Loading work.inert_intf
+# Loading work.SPI_mnrch
+# Loading work.inertial_integrator
+# Loading work.balance_cntrl
+# Loading work.PID
+# Loading work.SegwayMath
+# Loading work.steer_en
+# Loading work.steer_en_SM
+# Loading work.mtr_drv
+# Loading work.PWM11
+# Loading work.A2D_intf
+# Loading work.piezo_drv
+# Loading work.rst_synch
+# Loading work.UART_tx
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/wvfm_tb/iDUT/iA2D/*
+run -all
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+add wave -position insertpoint sim:/wvfm_tb/iPHYS/*
+run -all
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
+#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+# Unable to retrieve min/max values for "sim:/wvfm_tb/iPHYS/theta_platform":
+# 
+# can't unset "d(busyOldCursor)": no such element in array
+quit -sim
+# End time: 17:05:48 on Dec 08,2025, Elapsed time: 0:06:27
+# Errors: 0, Warnings: 1
