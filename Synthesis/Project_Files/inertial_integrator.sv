@@ -19,8 +19,9 @@ assign AZ_comp = AZ - $signed(16'h00A0);
 assign ptch_rt_comp = ptch_rt - $signed(16'h0050);
 
 
-// Shift adder
-assign ptch_acc_product = AZ_comp * $signed(327); // 327 is fudge factor
+// Turn into shift adder instead 
+//assign ptch_acc_product = AZ_comp * $signed(327); // 327 is fudge factor
+assign ptch_acc_product = (AZ_comp <<< 8) + (AZ_comp <<< 6) + (AZ_comp <<< 3) - AZ_comp; // 256 + 64 + 8 - 1
 assign ptch_acc = {{3{ptch_acc_product[25]}}, ptch_acc_product[25:13]};
 
 assign fusion_ptch_offset = (ptch_acc > ptch) ? 27'sd1024 : -27'sd1024;
