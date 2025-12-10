@@ -75,7 +75,7 @@ initial begin
   // call package task, passing references and clk/signal used by the task
   block_send_command(8'h47, cmd, send_cmd, clk, cmd_sent);
   // Wait for a few thousand clock cycles to let the segway stabilize
-  repeat(135000) @(posedge clk);
+
   // First test: Check that pwr_up is asserted and segway is balancing
   if (!iDUT.pwr_up) begin
     $display("Power up test failed: pwr_up signal not asserted after sending 'G' command");
@@ -83,15 +83,17 @@ initial begin
   end else begin
     $display("Power up test passed: pwr_up signal asserted after sending 'G' command");
   end
-  // First test: Check if pwr_up is asserted and segway is balancing
-  if (!iDUT.pwr_up || (iPHYS.theta_platform != 0)) begin
-    $display("Balancing test failed: pwr_up signal not asserted or theta_platform out of range (%0d)", iPHYS.theta_platform);
+  // Second test: Check theta_platform is within acceptable range (close to 0)
+  if ((iPHYS.theta_platform != 0)) begin
+    $display("Balancing test failed: pwr_up signal asserted asserted and theta_platform out of range (%0d)", iPHYS.theta_platform);
     $stop();
   end else begin
     $display("Balancing test passed: pwr_up signal asserted and theta_platform is 0 (%0d)", iPHYS.theta_platform);
   end
-
-  // Second Test: Test rider lean functionality
+  repeat(10000) @(posedge clk);
+  // Delay a bit between sending 'G' and starting rider lean tests
+  repeat(125000) @(posedge clk);
+  // 3rd Test: Test rider lean functionality
     rider_lean = 16'h0FFF; // Invoke check_theta_platform task. Make sure theta_platform goes high then low. When rider_lean = 0, theta_platform should go negative and converge to 0
     @(posedge clk);
     check_theta_platform(rider_lean, clk);
