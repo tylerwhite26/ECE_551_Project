@@ -142,14 +142,22 @@ generate
     end
 endgenerate
 
+// pipeline p, i, d ext terms
+logic signed [15:0] P_term_ext_piped;
+logic signed [15:0] D_term_ext_piped;
+logic signed [14:0] I_term_ext_piped;
+
+always_ff @(posedge clk) begin
+    P_term_ext_piped <= P_term_ext;
+    D_term_ext_piped <= D_term_ext;
+    I_term_ext_piped <= I_term_ext;
+end
+
 wire signed [16:0] addedSum;
-assign addedSum = (P_term_ext) + (D_term_ext) + (I_term_ext);
+assign addedSum = (P_term_ext_piped) + (D_term_ext_piped) + (I_term_ext_piped);
 
-wire signed [11:0] PID_cntrl_raw;
-assign PID_cntrl_raw = (addedSum[16] == 1 && !(&addedSum[15:11])) ? 12'sh800 : 
+assign PID_cntrl = (addedSum[16] == 1 && !(&addedSum[15:11])) ? 12'sh800 : 
                         (addedSum[16] == 0 && |addedSum[15:11]) ? 12'sh7FF : addedSum[11:0];
-
-assign PID_cntrl = pwr_up ? PID_cntrl_raw : 12'h000;
 
 endmodule
 
@@ -224,19 +232,46 @@ assign steer_clip = steer_pot < pot_low ? pot_low : (steer_pot > pot_hgh ? pot_h
 assign steer_pot_sat = steer_clip - pot_ctr;
 assign steer_scaled = (steer_pot_sat * 3) >>> 4; // 12-bit signed (3/16)
 
+/*
+// pipeline steer_scaled and PID_ss_ext
+logic signed [11:0] steer_scaled_piped;
+logic signed [12:0] PID_ss_ext_piped;
+always_ff @(posedge clk) begin
+    steer_scaled_piped <= steer_scaled;
+    PID_ss_ext_piped <= PID_ss_ext;
+end
+*/
+
 assign lft_torque = en_steer ? PID_ss_ext + steer_scaled : PID_ss_ext; // 13-bit signed
 assign rght_torque = en_steer ? PID_ss_ext - steer_scaled : PID_ss_ext; // 13-bit signed
 
+// pipeline lft and rght torque values
+logic signed [12:0] lft_torque_piped;
+logic signed [12:0] rght_torque_piped;
+always_ff @(posedge clk) begin
+    lft_torque_piped <= lft_torque;
+    rght_torque_piped <= rght_torque;
+end
+
 // left torque shaping
-assign lft_torque_comp = lft_torque[12] ? (lft_torque - MIN_DUTY) : (lft_torque + MIN_DUTY); 
-assign lft_abs = (lft_torque[12]) ? -lft_torque : lft_torque; // 13-bit unsigned
-assign lft_shaped = pwr_up ? ((lft_abs > LOW_TORQUE_BAND) ? lft_torque_comp : lft_torque*GAIN_MULT) : 13'h0000;
+assign lft_torque_comp = lft_torque_piped[12] ? (lft_torque_piped - MIN_DUTY) : (lft_torque_piped + MIN_DUTY); 
+assign lft_abs = (lft_torque_piped[12]) ? -lft_torque_piped : lft_torque_piped; // 13-bit unsigned
+assign lft_shaped = pwr_up ? ((lft_abs > LOW_TORQUE_BAND) ? lft_torque_comp : lft_torque_piped*GAIN_MULT) : 13'h0000;
 
 // right torque shaping
-assign rght_torque_comp = rght_torque[12] ? (rght_torque - MIN_DUTY) : (rght_torque + MIN_DUTY);
-assign rght_abs = (rght_torque[12]) ? -rght_torque : rght_torque; // 13-bit unsigned
-assign rght_shaped = pwr_up ? ((rght_abs > LOW_TORQUE_BAND) ? rght_torque_comp : rght_torque*GAIN_MULT) : 13'h0000;
+assign rght_torque_comp = rght_torque_piped[12] ? (rght_torque_piped - MIN_DUTY) : (rght_torque_piped + MIN_DUTY);
+assign rght_abs = (rght_torque_piped[12]) ? -rght_torque_piped : rght_torque_piped; // 13-bit unsigned
+assign rght_shaped = pwr_up ? ((rght_abs > LOW_TORQUE_BAND) ? rght_torque_comp : rght_torque_piped*GAIN_MULT) : 13'h0000;
 
+/*
+// pipeline lft and rght shaped values
+logic signed [12:0] lft_shaped_piped;
+logic signed [12:0] rght_shaped_piped;
+always_ff @(posedge clk) begin
+    lft_shaped_piped <= lft_shaped;
+    rght_shaped_piped <= rght_shaped;
+end
+*/
 
 // final speed assignments
 // Register outputs to increase pipeline depth and better match the other implementation
