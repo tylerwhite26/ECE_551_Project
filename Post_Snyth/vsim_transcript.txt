@@ -1,0 +1,635 @@
+sim -t ns -L /filespace/p/pdstewart/ECE551/SAED32_lib_RVT -voptargs=+acc +notimingchecks work.wvfm_tb
+# vsim -t ns -L /filespace/p/pdstewart/ECE551/SAED32_lib_RVT -voptargs="+acc" "+notimingchecks" work.wvfm_tb 
+# Start time: 14:55:01 on Dec 10,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# ** Warning: Segway.vg(804): (vopt-2685) [TFMPC] - Too few port connections for '\iAuth/uart_receiver/rx_shift_reg_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(804): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(806): (vopt-2685) [TFMPC] - Too few port connections for '\iAuth/uart_receiver/rx_shift_reg_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(806): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(818): (vopt-2685) [TFMPC] - Too few port connections for '\iAuth/uart_receiver/rx_shift_reg_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(818): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(820): (vopt-2685) [TFMPC] - Too few port connections for '\iAuth/uart_receiver/rx_shift_reg_reg[8] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(820): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(875): (vopt-2685) [TFMPC] - Too few port connections for '\iAuth/uart_receiver/RX_sync_1_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(875): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(878): (vopt-2685) [TFMPC] - Too few port connections for '\iAuth/uart_receiver/RX_sync_0_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(878): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(880): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/ptch_rt_l_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(880): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(888): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZl_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(888): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(889): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZh_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(889): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(890): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZh_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(890): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(892): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZh_reg[3] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(892): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(894): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZh_reg[5] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(894): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(896): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZh_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(896): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(899): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZl_reg[4] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(899): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(900): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/AZl_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(900): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(927): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[15] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(927): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(933): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/INT_ff2_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(933): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(935): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[15] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(935): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(937): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[14] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(937): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(939): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[13] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(939): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(941): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[12] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(941): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(943): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[11] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(943): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(945): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[10] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(945): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(949): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[8] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(949): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(953): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[6] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(953): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(955): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[5] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(955): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(957): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[4] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(957): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(959): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[3] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(959): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(961): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(961): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(963): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/shft_reg_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(963): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(971): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/SS_n_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(971): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(983): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/SCLK_div_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(983): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(985): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iSPI/SCLK_div_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(985): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(989): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(989): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1003): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[17] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1003): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1056): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[0] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1056): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1058): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1058): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1060): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1060): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1062): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1062): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1064): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1064): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1066): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1066): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1068): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1068): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1070): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1070): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1072): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1072): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1074): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1074): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1077): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1077): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1080): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[3] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1080): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1083): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[4] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1083): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1086): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[5] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1086): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1089): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[6] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1089): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1092): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1092): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1095): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[8] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1095): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1098): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[9] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1098): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1101): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[10] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1101): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1104): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[11] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1104): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1107): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[12] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1107): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1110): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[13] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1110): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1113): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/I_term_ext_piped_reg[14] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1113): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1116): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1116): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(1118): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1118): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1120): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1120): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1122): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[3] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1122): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1124): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[4] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1124): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1126): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[5] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1126): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1128): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[6] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1128): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1130): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1130): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1132): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[8] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1132): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1134): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[9] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1134): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1136): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[10] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1136): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1138): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[11] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1138): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1140): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[12] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1140): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1142): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[13] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1142): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1144): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[14] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1144): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1146): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/D_term_ext_piped_reg[15] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1146): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1148): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1148): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(1150): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1150): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1152): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1152): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1155): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[3] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1155): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1158): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[4] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1158): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1161): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[5] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1161): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1164): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[6] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1164): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1166): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1166): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1168): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[8] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1168): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1170): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[9] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1170): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1172): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[10] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1172): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1173): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[11] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1173): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1174): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[12] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1174): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1175): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[13] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1175): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1176): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[14] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1176): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1177): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/P_term_ext_piped_reg[15] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1177): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1178): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[25] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1178): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1180): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[24] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1180): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1182): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[23] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1182): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1184): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[22] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1184): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1186): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[21] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1186): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1188): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[20] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1188): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1214): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/long_tmr_reg[26] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1214): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1295): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/add_1_root_add_0_root_add_157_2/U1_16 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1295): (vopt-2718) [TFMPC] - Missing connection for port 'CO'.
+# ** Warning: Segway.vg(1375): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/add_0_root_add_0_root_add_157_2/U1_16 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1375): (vopt-2718) [TFMPC] - Missing connection for port 'CO'.
+# ** Warning: Segway.vg(1406): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_torque_piped_reg[9] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1406): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1409): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_torque_piped_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1409): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1441): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_torque_piped_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(1441): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1455): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1455): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1473): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_233/S1_2_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1473): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(1478): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1478): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(1481): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1481): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(1484): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/too_fast_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1484): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(1490): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1490): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1493): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1493): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1496): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1496): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1499): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1499): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1502): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1502): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1505): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1505): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1508): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1508): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1511): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1511): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1514): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1514): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1517): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_ss_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1517): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1520): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[0] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1520): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1522): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1522): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1524): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1524): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1526): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1526): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1528): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1528): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1530): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1530): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1532): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1532): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1534): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1534): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1536): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1536): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1538): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1538): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1540): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/PID_cntrl_piped_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1540): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(1544): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/ss_tmr_piped_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1544): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(1699): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_220/S1_2_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1699): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(1764): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_220/S1_3_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1764): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(1829): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_220/S1_4_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1829): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(1894): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_220/S1_5_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1894): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(1959): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_220/S1_6_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(1959): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(2024): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_220/S1_7_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2024): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(2071): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/add_51/U1_1_14 '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2071): (vopt-2718) [TFMPC] - Missing connection for port 'C1'.
+# ** Warning: Segway.vg(2078): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/sub_31_2/U2_11 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2078): (vopt-2718) [TFMPC] - Missing connection for port 'CO'.
+# ** Warning: Segway.vg(2083): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/sub_31/U2_11 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2083): (vopt-2718) [TFMPC] - Missing connection for port 'CO'.
+# ** Warning: Segway.vg(2098): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/PWM_cycle_cnt_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2098): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(2100): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/PWM_cycle_cnt_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2100): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(2121): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/rght_spd_synch_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2121): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2123): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/rght_spd_synch_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2123): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2125): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/lft_spd_synch_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2125): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2131): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/lft_spd_synch_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2131): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2149): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/iPWM_lft/PWM2_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2149): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2151): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/iPWM_lft/PWM1_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2151): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2199): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/iPWM_rght/PWM2_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2199): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2201): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/iPWM_rght/PWM1_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2201): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2273): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[0] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2273): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2274): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[15] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2274): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2276): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[14] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2276): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2278): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[13] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2278): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2280): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[12] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2280): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2282): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[11] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2282): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2284): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[10] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2284): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2286): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[9] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2286): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2288): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[8] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2288): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2290): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[7] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2290): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2292): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[6] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2292): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2294): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[5] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2294): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2296): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[4] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2296): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2298): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[3] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2298): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2300): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2300): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2304): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/shft_reg_reg[0] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2304): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2306): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/MISO_smpl_reg '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2306): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2310): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/SS_n_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2310): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2322): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/SCLK_div_reg[2] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2322): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2324): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/u_SPI/SCLK_div_reg[1] '.  Expected 4, found 3.
+# ** Warning: Segway.vg(2324): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(2328): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[12] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2328): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2330): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[13] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2330): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2332): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[14] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2332): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2334): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[15] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2334): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2344): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[20] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2344): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2346): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[21] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2346): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2348): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[22] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2348): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2350): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[23] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2350): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2353): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/counter_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2353): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(2370): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[22] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2370): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2372): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[21] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2372): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2374): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[20] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2374): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2376): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[19] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2376): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2378): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[18] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2378): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2380): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[17] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2380): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2382): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[16] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2382): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2384): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[15] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2384): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2386): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[14] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2386): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2388): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[13] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2388): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2390): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[12] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2390): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2392): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2392): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2394): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2394): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(2396): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2396): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(2422): (vopt-2685) [TFMPC] - Too few port connections for '\iRST/q1_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(2422): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4423): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[26] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4423): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4613): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/mult_233/S1_3_0 '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4613): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(4638): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/OVR_I_ff3_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4638): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4640): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/INT_ff1_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4640): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4644): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/OVR_I_shtdwn_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4644): (vopt-2718) [TFMPC] - Missing connection for port 'Q'.
+# ** Warning: Segway.vg(4649): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4649): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4650): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4650): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4651): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4651): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4652): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4652): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4653): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4653): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4654): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4654): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4655): (vopt-2685) [TFMPC] - Too few port connections for '\iA2D/steer_pot_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4655): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4668): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4668): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4670): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4670): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4672): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4672): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4674): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4674): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4678): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4678): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4686): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4686): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4690): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4690): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4692): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4692): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4694): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4694): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4698): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4698): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4702): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4702): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4704): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/PWM_cycle_cnt_reg[0] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4704): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4706): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4706): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4708): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/PWM_cycle_cnt_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4708): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4712): (vopt-2685) [TFMPC] - Too few port connections for '\iDRV/OVR_I_ff1_reg '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4712): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4716): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4716): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4718): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4718): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4720): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[12] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4720): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4724): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[13] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4724): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4726): (vopt-2685) [TFMPC] - Too few port connections for '\iBUZZ/durationTimer_reg[25] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4726): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4728): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/timer_reg[14] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4728): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4730): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4730): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4732): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4732): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4737): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4737): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4740): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4740): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4742): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4742): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4745): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4745): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4748): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4748): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4751): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4751): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4754): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4754): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4757): (vopt-2685) [TFMPC] - Too few port connections for '\iNEMO/iINT/ptch_int_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4757): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4759): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4759): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4762): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4762): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4765): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4765): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4768): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4768): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4771): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4771): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4774): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4774): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4777): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4777): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4780): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4780): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4783): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4783): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4786): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4786): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4788): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4788): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4790): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/rght_spd_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4790): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4793): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_SegwayMath/lft_spd_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4793): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4796): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[14] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4796): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4798): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[13] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4798): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4800): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[12] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4800): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4802): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[11] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4802): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4804): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[10] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4804): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4806): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[9] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4806): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4808): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[8] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4808): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4810): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[7] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4810): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4812): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[6] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4812): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4814): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[5] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4814): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4816): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[4] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4816): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4818): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[3] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4818): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4820): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4820): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4822): (vopt-2685) [TFMPC] - Too few port connections for '\iSTR/timer_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4822): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4827): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[1] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4827): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4831): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[2] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4831): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4836): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[12] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4836): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(4839): (vopt-2685) [TFMPC] - Too few port connections for '\iBAL/u_PID/integrator_reg[13] '.  Expected 5, found 4.
+# ** Warning: Segway.vg(4839): (vopt-2718) [TFMPC] - Missing connection for port 'QN'.
+# ** Warning: Segway.vg(5461): (vopt-2685) [TFMPC] - Too few port connections for 'U2834'.  Expected 5, found 4.
+# ** Warning: Segway.vg(5461): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(5531): (vopt-2685) [TFMPC] - Too few port connections for 'U2897'.  Expected 5, found 4.
+# ** Warning: Segway.vg(5531): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(5549): (vopt-2685) [TFMPC] - Too few port connections for 'U2912'.  Expected 5, found 4.
+# ** Warning: Segway.vg(5549): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Warning: Segway.vg(5848): (vopt-2685) [TFMPC] - Too few port connections for 'U3134'.  Expected 5, found 4.
+# ** Warning: Segway.vg(5848): (vopt-2718) [TFMPC] - Missing connection for port 'S'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "SegwayModel(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "SPI_ADC128S(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "UART_tx(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=541.
+# Loading sv_std.std
+# Loading work.tb_tasks_pkg(fast)
+# Loading work.wvfm_tb(fast)
+# Loading work.SegwayModel(fast)
+# Loading work.ADC128S_FC(fast)
+# Loading work.SPI_ADC128S(fast)
+# Loading work.Segway(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DFFARX1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DFFX1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DFFASX1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.HADDX1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.FADDX1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NOR4X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.INVX2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND4X0_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OA22X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OR2X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AO221X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AO22X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND3X0_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AO21X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND2X0_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AND2X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OA221X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OA21X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AO222X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AND3X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OR3X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AOI21X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AND4X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AOI222X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AOI22X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NOR2X0_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NOR3X0_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OA222X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OAI22X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DFFARX2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XOR3X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OR2X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.INVX1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XOR3X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NBUFFX2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XOR2X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.INVX0_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NOR2X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.MUX21X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XNOR2X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.MUX21X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OAI221X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XOR2X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND3X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AND4X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DELLN1X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XNOR3X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AOI21X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OA21X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AO21X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DELLN2X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.IBUFFX2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.XNOR2X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OAI21X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.IBUFFX8_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AO22X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AND2X4_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NOR2X4_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND3X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OR4X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.DELLN3X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OR2X4_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND4X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND2X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NAND2X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.OAI222X1_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.AND2X2_RVT(fast)
+# Loading /filespace/p/pdstewart/ECE551/SAED32_lib_RVT.NOR2X2_RVT(fast)
+# Loading work.UART_tx(fast)
+# Loading work.rst_synch(fast)
+add wave -position insertpoint sim:/wvfm_tb/iPHYS/theta_plat/*
+run -all
+# Testing
+# ** Note: $stop    : /filespace/p/pdstewart/ECE551/finalPostsynth/wvfm_tb.sv(89)
+#    Time: 37063830 ns  Iteration: 1  Instance: /wvfm_tb
+# Break in Module wvfm_tb at /filespace/p/pdstewart/ECE551/finalPostsynth/wvfm_tb.sv line 89
+# Causality operation skipped due to absence of debug database file
