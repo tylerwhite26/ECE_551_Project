@@ -5,22 +5,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	--none--
 
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_mnrch.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_mnrch.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SPI_mnrch
-
-Top level modules:
-	SPI_mnrch
-
-} {} {}} C:/Users/twsoc/ECE_551/HW/HW5/balance_cntrl.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/HW/HW5/balance_cntrl.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module balance_cntrl
--- Compiling module SegwayMath
--- Compiling module PID
-
-Top level modules:
-	balance_cntrl
-
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module Segway_tb
@@ -29,13 +13,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Segway_tb
 
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/steer_en.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/steer_en.sv
+} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module steer_en
--- Compiling module steer_en_SM
+-- Compiling module ADC128S_FC
 
 Top level modules:
-	steer_en
+	ADC128S_FC
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -45,50 +28,736 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	steer_tb
 
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv
+} {} {}} C:/Users/twsoc/ECE_552/Project_4/ece552/project4/proj4_synthesis/saed32nm.v {1 {vlog -work work -stats=none C:/Users/twsoc/ECE_552/Project_4/ece552/project4/proj4_synthesis/saed32nm.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ADC128S_FC
+-- Compiling module AND2X1_RVT
+-- Compiling module AND2X2_RVT
+-- Compiling module AND2X4_RVT
+-- Compiling module AND3X1_RVT
+-- Compiling module AND3X2_RVT
+-- Compiling module AND3X4_RVT
+-- Compiling module AND4X1_RVT
+-- Compiling module AND4X2_RVT
+-- Compiling module AND4X4_RVT
+-- Compiling module ANTENNA_RVT
+-- Compiling module AO21X1_RVT
+-- Compiling module AO21X2_RVT
+-- Compiling module AO221X1_RVT
+-- Compiling module AO221X2_RVT
+-- Compiling module AO222X1_RVT
+-- Compiling module AO222X2_RVT
+-- Compiling module AO22X1_RVT
+-- Compiling module AO22X2_RVT
+-- Compiling module AOBUFX1_RVT
+-- Compiling module AOBUFX2_RVT
+-- Compiling module AOBUFX4_RVT
+-- Compiling module AODFFARX1_RVT
+-- Compiling UDP s_aodffarx1_Q
+-- Compiling module AODFFARX2_RVT
+-- Compiling UDP s_aodffarx2_Q
+-- Compiling module AODFFNARX1_RVT
+-- Compiling UDP s_aodffnarx1_Q
+-- Compiling module AODFFNARX2_RVT
+-- Compiling UDP s_aodffnarx2_Q
+-- Compiling module AOI21X1_RVT
+-- Compiling module AOI21X2_RVT
+-- Compiling module AOI221X1_RVT
+-- Compiling module AOI221X2_RVT
+-- Compiling module AOI222X1_RVT
+-- Compiling module AOI222X2_RVT
+-- Compiling module AOI22X1_RVT
+-- Compiling module AOI22X2_RVT
+-- Compiling module AOINVX1_RVT
+-- Compiling module AOINVX2_RVT
+-- Compiling module AOINVX4_RVT
+-- Compiling module BSLEX1_RVT
+-- Compiling module BSLEX2_RVT
+-- Compiling module BSLEX4_RVT
+-- Compiling module BUSKP_RVT
+-- Compiling module CGLNPRX2_RVT
+-- Compiling module CGLNPRX8_RVT
+-- Compiling module CGLNPSX16_RVT
+-- Compiling module CGLNPSX2_RVT
+-- Compiling module CGLNPSX4_RVT
+-- Compiling module CGLNPSX8_RVT
+-- Compiling module CGLPPRX2_RVT
+-- Compiling module CGLPPRX8_RVT
+-- Compiling module CGLPPSX16_RVT
+-- Compiling module CGLPPSX2_RVT
+-- Compiling module CGLPPSX4_RVT
+-- Compiling module CGLPPSX8_RVT
+-- Compiling module CLOAD1_RVT
+-- Compiling module DCAP_RVT
+-- Compiling module DEC24X1_RVT
+-- Compiling UDP s_dec24x1_Q3
+-- Compiling UDP s_dec24x1_Q2
+-- Compiling UDP s_dec24x1_Q1
+-- Compiling UDP s_dec24x1_Q0
+-- Compiling module DEC24X2_RVT
+-- Compiling UDP s_dec24x2_Q3
+-- Compiling UDP s_dec24x2_Q2
+-- Compiling UDP s_dec24x2_Q1
+-- Compiling UDP s_dec24x2_Q0
+-- Compiling module DELLN1X2_RVT
+-- Compiling module DELLN2X2_RVT
+-- Compiling module DELLN3X2_RVT
+-- Compiling module DFFARX1_RVT
+-- Compiling module DFFARX2_RVT
+-- Compiling module DFFASRX1_RVT
+-- Compiling module DFFASRX2_RVT
+-- Compiling module DFFASX1_RVT
+-- Compiling module DFFASX2_RVT
+-- Compiling module DFFNARX1_RVT
+-- Compiling module DFFNARX2_RVT
+-- Compiling module DFFNASRNX1_RVT
+-- Compiling module DFFNASRNX2_RVT
+-- Compiling module DFFNASRQX1_RVT
+-- Compiling module DFFNASRQX2_RVT
+-- Compiling module DFFNASRX1_RVT
+-- Compiling module DFFNASRX2_RVT
+-- Compiling module DFFNASX1_RVT
+-- Compiling module DFFNASX2_RVT
+-- Compiling module DFFNX1_RVT
+-- Compiling module DFFNX2_RVT
+-- Compiling module DFFSSRX1_RVT
+-- Compiling module DFFSSRX2_RVT
+-- Compiling module DFFX1_RVT
+-- Compiling module DFFX2_RVT
+-- Compiling module DHFILLHL2_RVT
+-- Compiling module DHFILLHLHLS11_RVT
+-- Compiling module DHFILLH2_RVT
+-- Compiling module FADDX1_RVT
+-- Compiling UDP s_faddx1_S
+-- Compiling UDP s_faddx1_CO
+-- Compiling module FADDX2_RVT
+-- Compiling UDP s_faddx2_S
+-- Compiling UDP s_faddx2_CO
+-- Compiling module HADDX1_RVT
+-- Compiling module HADDX2_RVT
+-- Compiling module FOOT2X16_RVT
+-- Compiling module FOOT2X2_RVT
+-- Compiling module FOOT2X32_RVT
+-- Compiling module FOOT2X4_RVT
+-- Compiling module FOOT2X8_RVT
+-- Compiling module FOOTX16_RVT
+-- Compiling module FOOTX2_RVT
+-- Compiling module FOOTX32_RVT
+-- Compiling module FOOTX4_RVT
+-- Compiling module FOOTX8_RVT
+-- Compiling module HEAD2X16_RVT
+-- Compiling module HEAD2X2_RVT
+-- Compiling module HEAD2X32_RVT
+-- Compiling module HEAD2X4_RVT
+-- Compiling module HEAD2X8_RVT
+-- Compiling module HEADX16_RVT
+-- Compiling module HEADX2_RVT
+-- Compiling module HEADX32_RVT
+-- Compiling module HEADX4_RVT
+-- Compiling module HEADX8_RVT
+-- Compiling module IBUFFX16_RVT
+-- Compiling module IBUFFX2_RVT
+-- Compiling module IBUFFX32_RVT
+-- Compiling module IBUFFX4_RVT
+-- Compiling module IBUFFX8_RVT
+-- Compiling module INVX0_RVT
+-- Compiling module INVX16_RVT
+-- Compiling module INVX1_RVT
+-- Compiling module INVX2_RVT
+-- Compiling module INVX32_RVT
+-- Compiling module INVX4_RVT
+-- Compiling module INVX8_RVT
+-- Compiling module ISOLANDX1_RVT
+-- Compiling module ISOLANDX2_RVT
+-- Compiling module ISOLANDX4_RVT
+-- Compiling module ISOLANDX8_RVT
+-- Compiling module ISOLORX1_RVT
+-- Compiling module ISOLORX2_RVT
+-- Compiling module ISOLORX4_RVT
+-- Compiling module ISOLORX8_RVT
+-- Compiling module ISOLANDAOX1_RVT
+-- Compiling module ISOLANDAOX2_RVT
+-- Compiling module ISOLANDAOX4_RVT
+-- Compiling module ISOLANDAOX8_RVT
+-- Compiling module ISOLORAOX1_RVT
+-- Compiling module ISOLORAOX2_RVT
+-- Compiling module ISOLORAOX4_RVT
+-- Compiling module ISOLORAOX8_RVT
+-- Compiling module LARX1_RVT
+-- Compiling module LARX2_RVT
+-- Compiling module LASRNX1_RVT
+-- Compiling module LASRNX2_RVT
+-- Compiling module LASRQX1_RVT
+-- Compiling module LASRQX2_RVT
+-- Compiling module LASRX1_RVT
+-- Compiling module LASRX2_RVT
+-- Compiling module LASX1_RVT
+-- Compiling module LASX2_RVT
+-- Compiling module LATCHX1_RVT
+-- Compiling module LATCHX2_RVT
+-- Compiling module LNANDX1_RVT
+-- Compiling module LNANDX2_RVT
+-- Compiling module LSDNENX1_RVT
+-- Compiling module LSDNENX2_RVT
+-- Compiling module LSDNENX4_RVT
+-- Compiling module LSDNENX8_RVT
+-- Compiling module LSDNENCLX1_RVT
+-- Compiling module LSDNENCLX2_RVT
+-- Compiling module LSDNENCLX4_RVT
+-- Compiling module LSDNENCLX8_RVT
+-- Compiling module LSDNENCLSSX1_RVT
+-- Compiling module LSDNENCLSSX2_RVT
+-- Compiling module LSDNENCLSSX4_RVT
+-- Compiling module LSDNENCLSSX8_RVT
+-- Compiling module LSDNENSSX1_RVT
+-- Compiling module LSDNENSSX2_RVT
+-- Compiling module LSDNENSSX4_RVT
+-- Compiling module LSDNENSSX8_RVT
+-- Compiling module LSDNSSX1_RVT
+-- Compiling module LSDNSSX2_RVT
+-- Compiling module LSDNSSX4_RVT
+-- Compiling module LSDNSSX8_RVT
+-- Compiling module LSDNX1_RVT
+-- Compiling module LSDNX2_RVT
+-- Compiling module LSDNX4_RVT
+-- Compiling module LSDNX8_RVT
+-- Compiling module LSUPENX1_RVT
+-- Compiling module LSUPENX2_RVT
+-- Compiling module LSUPENX4_RVT
+-- Compiling module LSUPENX8_RVT
+-- Compiling module LSUPENCLX1_RVT
+-- Compiling module LSUPENCLX2_RVT
+-- Compiling module LSUPENCLX4_RVT
+-- Compiling module LSUPENCLX8_RVT
+-- Compiling module LSUPX1_RVT
+-- Compiling module LSUPX2_RVT
+-- Compiling module LSUPX4_RVT
+-- Compiling module LSUPX8_RVT
+-- Compiling module MUX21X1_RVT
+-- Compiling UDP s_mux21x1
+-- Compiling module MUX21X2_RVT
+-- Compiling UDP s_mux21x2
+-- Compiling module MUX41X1_RVT
+-- Compiling UDP s_mux41x1
+-- Compiling module MUX41X2_RVT
+-- Compiling UDP s_mux41x2
+-- Compiling module NAND2X0_RVT
+-- Compiling module NAND2X1_RVT
+-- Compiling module NAND2X2_RVT
+-- Compiling module NAND2X4_RVT
+-- Compiling module NAND3X0_RVT
+-- Compiling module NAND3X1_RVT
+-- Compiling module NAND3X2_RVT
+-- Compiling module NAND3X4_RVT
+-- Compiling module NAND4X0_RVT
+-- Compiling module NAND4X1_RVT
+-- Compiling module NBUFFX16_RVT
+-- Compiling module NBUFFX2_RVT
+-- Compiling module NBUFFX32_RVT
+-- Compiling module NBUFFX4_RVT
+-- Compiling module NBUFFX8_RVT
+-- Compiling module NMT1_RVT
+-- Compiling module NMT2_RVT
+-- Compiling module NMT3_RVT
+-- Compiling module NOR2X0_RVT
+-- Compiling module NOR2X1_RVT
+-- Compiling module NOR2X2_RVT
+-- Compiling module NOR2X4_RVT
+-- Compiling module NOR3X0_RVT
+-- Compiling module NOR3X1_RVT
+-- Compiling module NOR3X2_RVT
+-- Compiling module NOR3X4_RVT
+-- Compiling module NOR4X0_RVT
+-- Compiling module NOR4X1_RVT
+-- Compiling module OA21X1_RVT
+-- Compiling module OA21X2_RVT
+-- Compiling module OA221X1_RVT
+-- Compiling module OA221X2_RVT
+-- Compiling module OA222X1_RVT
+-- Compiling module OA222X2_RVT
+-- Compiling module OA22X1_RVT
+-- Compiling module OA22X2_RVT
+-- Compiling module OAI21X1_RVT
+-- Compiling module OAI21X2_RVT
+-- Compiling module OAI221X1_RVT
+-- Compiling module OAI221X2_RVT
+-- Compiling module OAI222X1_RVT
+-- Compiling module OAI222X2_RVT
+-- Compiling module OAI22X1_RVT
+-- Compiling module OAI22X2_RVT
+-- Compiling module OR2X1_RVT
+-- Compiling module OR2X2_RVT
+-- Compiling module OR2X4_RVT
+-- Compiling module OR3X1_RVT
+-- Compiling module OR3X2_RVT
+-- Compiling module OR3X4_RVT
+-- Compiling module OR4X1_RVT
+-- Compiling module OR4X2_RVT
+-- Compiling module OR4X4_RVT
+-- Compiling module PGX1_RVT
+-- Compiling module PGX2_RVT
+-- Compiling module PGX4_RVT
+-- Compiling module PMT1_RVT
+-- Compiling module PMT2_RVT
+-- Compiling module PMT3_RVT
+-- Compiling module RDFFARX1_RVT
+-- Compiling module RDFFARX2_RVT
+-- Compiling module RDFFNARX1_RVT
+-- Compiling module RDFFNARX2_RVT
+-- Compiling module RSDFFARX1_RVT
+-- Compiling module RSDFFARX2_RVT
+-- Compiling module RSDFFNARX1_RVT
+-- Compiling module RSDFFNARX2_RVT
+-- Compiling module RDFFNX1_RVT
+-- Compiling module RDFFNX2_RVT
+-- Compiling module RDFFX1_RVT
+-- Compiling module RDFFX2_RVT
+-- Compiling module RSDFFNX1_RVT
+-- Compiling module RSDFFNX2_RVT
+-- Compiling module RSDFFX1_RVT
+-- Compiling module RSDFFX2_RVT
+-- Compiling module SDFFARX1_RVT
+-- Compiling module SDFFARX2_RVT
+-- Compiling module SDFFASRSX1_RVT
+-- Compiling module SDFFASRSX2_RVT
+-- Compiling module SDFFASRX1_RVT
+-- Compiling module SDFFASRX2_RVT
+-- Compiling module SDFFASX1_RVT
+-- Compiling module SDFFASX2_RVT
+-- Compiling module SDFFNARX1_RVT
+-- Compiling module SDFFNARX2_RVT
+-- Compiling module SDFFNASRX1_RVT
+-- Compiling module SDFFNASRX2_RVT
+-- Compiling module SDFFNASX1_RVT
+-- Compiling module SDFFNASX2_RVT
+-- Compiling module SDFFNX1_RVT
+-- Compiling module SDFFNX2_RVT
+-- Compiling module SDFFSSRX1_RVT
+-- Compiling module SDFFSSRX2_RVT
+-- Compiling module SDFFX1_RVT
+-- Compiling module SDFFX2_RVT
+-- Compiling module SHFILL2_RVT
+-- Compiling module SHFILL3_RVT
+-- Compiling module SHFILL1_RVT
+-- Compiling module SHFILL64_RVT
+-- Compiling module SHFILL128_RVT
+-- Compiling module TIEH_RVT
+-- Compiling module TIEL_RVT
+-- Compiling module TNBUFFX16_RVT
+-- Compiling module TNBUFFX1_RVT
+-- Compiling module TNBUFFX2_RVT
+-- Compiling module TNBUFFX32_RVT
+-- Compiling module TNBUFFX4_RVT
+-- Compiling module TNBUFFX8_RVT
+-- Compiling module XNOR2X1_RVT
+-- Compiling module XNOR2X2_RVT
+-- Compiling module XNOR3X1_RVT
+-- Compiling module XNOR3X2_RVT
+-- Compiling module XOR2X1_RVT
+-- Compiling module XOR2X2_RVT
+-- Compiling module XOR3X1_RVT
+-- Compiling module XOR3X2_RVT
+-- Compiling module RDFFNSRASX1_RVT
+-- Compiling module RDFFNSRASX2_RVT
+-- Compiling module RDFFSRARX1_RVT
+-- Compiling module RDFFSRARX2_RVT
+-- Compiling module RDFFSRASRX1_RVT
+-- Compiling module RDFFSRASRX2_RVT
+-- Compiling module RDFFSRASX1_RVT
+-- Compiling module RDFFSRASX2_RVT
+-- Compiling module RSDFFNSRARX1_RVT
+-- Compiling module RSDFFNSRARX2_RVT
+-- Compiling module RSDFFNSRASRX1_RVT
+-- Compiling module RSDFFNSRASRX2_RVT
+-- Compiling module RSDFFNSRASRNX1_RVT
+-- Compiling module RSDFFNSRASRNX2_RVT
+-- Compiling module RSDFFNSRASRQX1_RVT
+-- Compiling module RSDFFNSRASRQX2_RVT
+-- Compiling module RSDFFSRARX1_RVT
+-- Compiling module RSDFFSRARX2_RVT
+-- Compiling module RSDFFSRASRX1_RVT
+-- Compiling module RSDFFSRASRX2_RVT
+-- Compiling module RDFFNSRARX1_RVT
+-- Compiling module RDFFNSRARX2_RVT
+-- Compiling module RDFFNSRASRQX1_RVT
+-- Compiling module RDFFNSRASRQX2_RVT
+-- Compiling module RDFFNSRASRNX1_RVT
+-- Compiling module RDFFNSRASRNX2_RVT
+-- Compiling module RDFFNSRASRX1_RVT
+-- Compiling module RDFFNSRASRX2_RVT
+-- Compiling module RDFFNSRX1_RVT
+-- Compiling module RDFFNSRX2_RVT
+-- Compiling module RDFFSRSSRX1_RVT
+-- Compiling module RDFFSRSSRX2_RVT
+-- Compiling module RDFFSRX1_RVT
+-- Compiling module RDFFSRX2_RVT
+-- Compiling module RSDFFNSRASX1_RVT
+-- Compiling module RSDFFNSRASX2_RVT
+-- Compiling module RSDFFNSRX1_RVT
+-- Compiling module RSDFFNSRX2_RVT
+-- Compiling module RSDFFSRASX1_RVT
+-- Compiling module RSDFFSRASX2_RVT
+-- Compiling module RSDFFSRSSRX1_RVT
+-- Compiling module RSDFFSRSSRX2_RVT
+-- Compiling module RSDFFSRX1_RVT
+-- Compiling module RSDFFSRX2_RVT
+-- Compiling UDP saed32_xbuf_lvt
+-- Compiling UDP saed32_mux_lvt
+-- Compiling UDP saed32_dff_pos_lvt
+-- Compiling UDP saed32_dff_neg_lvt
+-- Compiling UDP saed32_dla_high_lvt
+-- Compiling UDP saed32_dla_low_lvt
 
 Top level modules:
-	ADC128S_FC
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Segway
-
-Top level modules:
-	Segway
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv {2 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SegwayModel
-** Warning: C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv(141): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-** Warning: C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv(254): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-** Warning: C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SegwayModel.sv(256): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-
-Top level modules:
-	SegwayModel
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Auth_blk
-
-Top level modules:
-	Auth_blk
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module piezo_drv
-
-Top level modules:
-	piezo_drv
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inert_intf.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inert_intf.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module inert_intf
-
-Top level modules:
-	inert_intf
+	AND2X1_RVT
+	AND2X2_RVT
+	AND2X4_RVT
+	AND3X1_RVT
+	AND3X2_RVT
+	AND3X4_RVT
+	AND4X1_RVT
+	AND4X2_RVT
+	AND4X4_RVT
+	ANTENNA_RVT
+	AO21X1_RVT
+	AO21X2_RVT
+	AO221X1_RVT
+	AO221X2_RVT
+	AO222X1_RVT
+	AO222X2_RVT
+	AO22X1_RVT
+	AO22X2_RVT
+	AOBUFX1_RVT
+	AOBUFX2_RVT
+	AOBUFX4_RVT
+	AODFFARX1_RVT
+	AODFFARX2_RVT
+	AODFFNARX1_RVT
+	AODFFNARX2_RVT
+	AOI21X1_RVT
+	AOI21X2_RVT
+	AOI221X1_RVT
+	AOI221X2_RVT
+	AOI222X1_RVT
+	AOI222X2_RVT
+	AOI22X1_RVT
+	AOI22X2_RVT
+	AOINVX1_RVT
+	AOINVX2_RVT
+	AOINVX4_RVT
+	BSLEX1_RVT
+	BSLEX2_RVT
+	BSLEX4_RVT
+	BUSKP_RVT
+	CGLNPRX2_RVT
+	CGLNPRX8_RVT
+	CGLNPSX16_RVT
+	CGLNPSX2_RVT
+	CGLNPSX4_RVT
+	CGLNPSX8_RVT
+	CGLPPRX2_RVT
+	CGLPPRX8_RVT
+	CGLPPSX16_RVT
+	CGLPPSX2_RVT
+	CGLPPSX4_RVT
+	CGLPPSX8_RVT
+	CLOAD1_RVT
+	DCAP_RVT
+	DEC24X1_RVT
+	DEC24X2_RVT
+	DELLN1X2_RVT
+	DELLN2X2_RVT
+	DELLN3X2_RVT
+	DFFARX1_RVT
+	DFFARX2_RVT
+	DFFASRX1_RVT
+	DFFASRX2_RVT
+	DFFASX1_RVT
+	DFFASX2_RVT
+	DFFNARX1_RVT
+	DFFNARX2_RVT
+	DFFNASRNX1_RVT
+	DFFNASRNX2_RVT
+	DFFNASRQX1_RVT
+	DFFNASRQX2_RVT
+	DFFNASRX1_RVT
+	DFFNASRX2_RVT
+	DFFNASX1_RVT
+	DFFNASX2_RVT
+	DFFNX1_RVT
+	DFFNX2_RVT
+	DFFSSRX1_RVT
+	DFFSSRX2_RVT
+	DFFX1_RVT
+	DFFX2_RVT
+	DHFILLHL2_RVT
+	DHFILLHLHLS11_RVT
+	DHFILLH2_RVT
+	FADDX1_RVT
+	FADDX2_RVT
+	HADDX1_RVT
+	HADDX2_RVT
+	FOOT2X16_RVT
+	FOOT2X2_RVT
+	FOOT2X32_RVT
+	FOOT2X4_RVT
+	FOOT2X8_RVT
+	FOOTX16_RVT
+	FOOTX2_RVT
+	FOOTX32_RVT
+	FOOTX4_RVT
+	FOOTX8_RVT
+	HEAD2X16_RVT
+	HEAD2X2_RVT
+	HEAD2X32_RVT
+	HEAD2X4_RVT
+	HEAD2X8_RVT
+	HEADX16_RVT
+	HEADX2_RVT
+	HEADX32_RVT
+	HEADX4_RVT
+	HEADX8_RVT
+	IBUFFX16_RVT
+	IBUFFX2_RVT
+	IBUFFX32_RVT
+	IBUFFX4_RVT
+	IBUFFX8_RVT
+	INVX0_RVT
+	INVX16_RVT
+	INVX1_RVT
+	INVX2_RVT
+	INVX32_RVT
+	INVX4_RVT
+	INVX8_RVT
+	ISOLANDX1_RVT
+	ISOLANDX2_RVT
+	ISOLANDX4_RVT
+	ISOLANDX8_RVT
+	ISOLORX1_RVT
+	ISOLORX2_RVT
+	ISOLORX4_RVT
+	ISOLORX8_RVT
+	ISOLANDAOX1_RVT
+	ISOLANDAOX2_RVT
+	ISOLANDAOX4_RVT
+	ISOLANDAOX8_RVT
+	ISOLORAOX1_RVT
+	ISOLORAOX2_RVT
+	ISOLORAOX4_RVT
+	ISOLORAOX8_RVT
+	LARX1_RVT
+	LARX2_RVT
+	LASRNX1_RVT
+	LASRNX2_RVT
+	LASRQX1_RVT
+	LASRQX2_RVT
+	LASRX1_RVT
+	LASRX2_RVT
+	LASX1_RVT
+	LASX2_RVT
+	LATCHX1_RVT
+	LATCHX2_RVT
+	LNANDX1_RVT
+	LNANDX2_RVT
+	LSDNENX1_RVT
+	LSDNENX2_RVT
+	LSDNENX4_RVT
+	LSDNENX8_RVT
+	LSDNENCLX1_RVT
+	LSDNENCLX2_RVT
+	LSDNENCLX4_RVT
+	LSDNENCLX8_RVT
+	LSDNENCLSSX1_RVT
+	LSDNENCLSSX2_RVT
+	LSDNENCLSSX4_RVT
+	LSDNENCLSSX8_RVT
+	LSDNENSSX1_RVT
+	LSDNENSSX2_RVT
+	LSDNENSSX4_RVT
+	LSDNENSSX8_RVT
+	LSDNSSX1_RVT
+	LSDNSSX2_RVT
+	LSDNSSX4_RVT
+	LSDNSSX8_RVT
+	LSDNX1_RVT
+	LSDNX2_RVT
+	LSDNX4_RVT
+	LSDNX8_RVT
+	LSUPENX1_RVT
+	LSUPENX2_RVT
+	LSUPENX4_RVT
+	LSUPENX8_RVT
+	LSUPENCLX1_RVT
+	LSUPENCLX2_RVT
+	LSUPENCLX4_RVT
+	LSUPENCLX8_RVT
+	LSUPX1_RVT
+	LSUPX2_RVT
+	LSUPX4_RVT
+	LSUPX8_RVT
+	MUX21X1_RVT
+	MUX21X2_RVT
+	MUX41X1_RVT
+	MUX41X2_RVT
+	NAND2X0_RVT
+	NAND2X1_RVT
+	NAND2X2_RVT
+	NAND2X4_RVT
+	NAND3X0_RVT
+	NAND3X1_RVT
+	NAND3X2_RVT
+	NAND3X4_RVT
+	NAND4X0_RVT
+	NAND4X1_RVT
+	NBUFFX16_RVT
+	NBUFFX2_RVT
+	NBUFFX32_RVT
+	NBUFFX4_RVT
+	NBUFFX8_RVT
+	NMT1_RVT
+	NMT2_RVT
+	NMT3_RVT
+	NOR2X0_RVT
+	NOR2X1_RVT
+	NOR2X2_RVT
+	NOR2X4_RVT
+	NOR3X0_RVT
+	NOR3X1_RVT
+	NOR3X2_RVT
+	NOR3X4_RVT
+	NOR4X0_RVT
+	NOR4X1_RVT
+	OA21X1_RVT
+	OA21X2_RVT
+	OA221X1_RVT
+	OA221X2_RVT
+	OA222X1_RVT
+	OA222X2_RVT
+	OA22X1_RVT
+	OA22X2_RVT
+	OAI21X1_RVT
+	OAI21X2_RVT
+	OAI221X1_RVT
+	OAI221X2_RVT
+	OAI222X1_RVT
+	OAI222X2_RVT
+	OAI22X1_RVT
+	OAI22X2_RVT
+	OR2X1_RVT
+	OR2X2_RVT
+	OR2X4_RVT
+	OR3X1_RVT
+	OR3X2_RVT
+	OR3X4_RVT
+	OR4X1_RVT
+	OR4X2_RVT
+	OR4X4_RVT
+	PGX1_RVT
+	PGX2_RVT
+	PGX4_RVT
+	PMT1_RVT
+	PMT2_RVT
+	PMT3_RVT
+	RDFFARX1_RVT
+	RDFFARX2_RVT
+	RDFFNARX1_RVT
+	RDFFNARX2_RVT
+	RSDFFARX1_RVT
+	RSDFFARX2_RVT
+	RSDFFNARX1_RVT
+	RSDFFNARX2_RVT
+	RDFFNX1_RVT
+	RDFFNX2_RVT
+	RDFFX1_RVT
+	RDFFX2_RVT
+	RSDFFNX1_RVT
+	RSDFFNX2_RVT
+	RSDFFX1_RVT
+	RSDFFX2_RVT
+	SDFFARX1_RVT
+	SDFFARX2_RVT
+	SDFFASRSX1_RVT
+	SDFFASRSX2_RVT
+	SDFFASRX1_RVT
+	SDFFASRX2_RVT
+	SDFFASX1_RVT
+	SDFFASX2_RVT
+	SDFFNARX1_RVT
+	SDFFNARX2_RVT
+	SDFFNASRX1_RVT
+	SDFFNASRX2_RVT
+	SDFFNASX1_RVT
+	SDFFNASX2_RVT
+	SDFFNX1_RVT
+	SDFFNX2_RVT
+	SDFFSSRX1_RVT
+	SDFFSSRX2_RVT
+	SDFFX1_RVT
+	SDFFX2_RVT
+	SHFILL2_RVT
+	SHFILL3_RVT
+	SHFILL1_RVT
+	SHFILL64_RVT
+	SHFILL128_RVT
+	TIEH_RVT
+	TIEL_RVT
+	TNBUFFX16_RVT
+	TNBUFFX1_RVT
+	TNBUFFX2_RVT
+	TNBUFFX32_RVT
+	TNBUFFX4_RVT
+	TNBUFFX8_RVT
+	XNOR2X1_RVT
+	XNOR2X2_RVT
+	XNOR3X1_RVT
+	XNOR3X2_RVT
+	XOR2X1_RVT
+	XOR2X2_RVT
+	XOR3X1_RVT
+	XOR3X2_RVT
+	RDFFNSRASX1_RVT
+	RDFFNSRASX2_RVT
+	RDFFSRARX1_RVT
+	RDFFSRARX2_RVT
+	RDFFSRASRX1_RVT
+	RDFFSRASRX2_RVT
+	RDFFSRASX1_RVT
+	RDFFSRASX2_RVT
+	RSDFFNSRARX1_RVT
+	RSDFFNSRARX2_RVT
+	RSDFFNSRASRX1_RVT
+	RSDFFNSRASRX2_RVT
+	RSDFFNSRASRNX1_RVT
+	RSDFFNSRASRNX2_RVT
+	RSDFFNSRASRQX1_RVT
+	RSDFFNSRASRQX2_RVT
+	RSDFFSRARX1_RVT
+	RSDFFSRARX2_RVT
+	RSDFFSRASRX1_RVT
+	RSDFFSRASRX2_RVT
+	RDFFNSRARX1_RVT
+	RDFFNSRARX2_RVT
+	RDFFNSRASRQX1_RVT
+	RDFFNSRASRQX2_RVT
+	RDFFNSRASRNX1_RVT
+	RDFFNSRASRNX2_RVT
+	RDFFNSRASRX1_RVT
+	RDFFNSRASRX2_RVT
+	RDFFNSRX1_RVT
+	RDFFNSRX2_RVT
+	RDFFSRSSRX1_RVT
+	RDFFSRSSRX2_RVT
+	RDFFSRX1_RVT
+	RDFFSRX2_RVT
+	RSDFFNSRASX1_RVT
+	RSDFFNSRASX2_RVT
+	RSDFFNSRX1_RVT
+	RSDFFNSRX2_RVT
+	RSDFFSRASX1_RVT
+	RSDFFSRASX2_RVT
+	RSDFFSRSSRX1_RVT
+	RSDFFSRSSRX2_RVT
+	RSDFFSRX1_RVT
+	RSDFFSRX2_RVT
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/mtr_drv_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/mtr_drv_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -97,13 +766,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	mtr_drv_tb
 
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_rx.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_rx.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module UART_rx
-
-Top level modules:
-	UART_rx
-
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/rst_synch.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/rst_synch.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module rst_synch
@@ -111,19 +773,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	rst_synch
 
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/PWM11.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/PWM11.sv
+} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Results/Segway.vg {1 {vlog -work work -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Results/Segway.vg
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module PWM11
+-- Compiling module Segway
 
 Top level modules:
-	PWM11
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/mtr_drv.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/mtr_drv.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module mtr_drv
-
-Top level modules:
-	mtr_drv
+	Segway
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Overcurrent_Test/ovr_i_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Overcurrent_Test/ovr_i_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -139,21 +794,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	UART_tx
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/A2D_intf.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/A2D_intf.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module A2D_intf
-
-Top level modules:
-	A2D_intf
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module wvfm_tb
--- Importing package tb_tasks_pkg
-
-Top level modules:
-	wvfm_tb
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

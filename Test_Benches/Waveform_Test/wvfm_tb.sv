@@ -1,4 +1,6 @@
+`timescale 1ns/1ps
 module wvfm_tb();
+
 			
 //// Interconnects to DUT/support defined as type wire /////
 wire SS_n,SCLK,MOSI,MISO,INT;				// to inertial sensor
