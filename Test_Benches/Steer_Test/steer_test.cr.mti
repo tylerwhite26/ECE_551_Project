@@ -12,6 +12,15 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	SPI_mnrch
 
+} {} {}} C:/Users/twsoc/ECE_551/HW/HW5/balance_cntrl.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/HW/HW5/balance_cntrl.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module balance_cntrl
+-- Compiling module SegwayMath
+-- Compiling module PID
+
+Top level modules:
+	balance_cntrl
+
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module Segway_tb
@@ -28,20 +37,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	steer_en
 
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inertial_integrator.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/inertial_integrator.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module inertial_integrator
-
-Top level modules:
-	inertial_integrator
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ADC128S_FC
-
-Top level modules:
-	ADC128S_FC
-
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module steer_tb
@@ -49,6 +44,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	steer_tb
+
+} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/ADC128S_FC.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ADC128S_FC
+
+Top level modules:
+	ADC128S_FC
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Segway.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -67,6 +69,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	SegwayModel
 
+} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Auth_blk
+
+Top level modules:
+	Auth_blk
+
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/piezo_drv.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module piezo_drv
@@ -80,13 +89,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	inert_intf
-
-} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/Auth_blk.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Auth_blk
-
-Top level modules:
-	Auth_blk
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/mtr_drv_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/mtr_drv_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -123,6 +125,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	mtr_drv
 
+} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Overcurrent_Test/ovr_i_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Overcurrent_Test/ovr_i_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ovr_i_tb
+-- Importing package tb_tasks_pkg
+
+Top level modules:
+	ovr_i_tb
+
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_tx.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/UART_tx.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module UART_tx
@@ -136,6 +146,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	A2D_intf
+
+} {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module wvfm_tb
+-- Importing package tb_tasks_pkg
+
+Top level modules:
+	wvfm_tb
 
 } {} {}} C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv {1 {vlog -work work -sv -stats=none C:/Users/twsoc/ECE_551/ECE_551_Project/Synthesis/Project_Files/SPI_ADC128S.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

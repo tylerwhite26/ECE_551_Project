@@ -1,4 +1,4 @@
-module steer_tb();
+module ovr_i_tb();
 			
 //// Interconnects to DUT/support defined as type wire /////
 wire SS_n,SCLK,MOSI,MISO,INT;				// to inertial sensor
@@ -78,43 +78,27 @@ initial begin
     
     rider_lean = 16'h0fff;
 
-    repeat(2) begin
-      repeat(125) begin
-        repeat(1000) @ (posedge clk);
-        steerPot = steerPot + 2;
-      end
+    repeat(200000) @ (posedge clk);
 
-      repeat(250) begin
-      repeat (1000) @ (posedge clk);
-      steerPot = steerPot - 2;
-      end
+    OVR_I_lft = 1;
 
-      repeat(125) begin
-      repeat(1000) @ (posedge clk);
-      steerPot = steerPot + 2;
-      end
-    end
+    repeat(200000) @ (posedge clk);
+
+    OVR_I_lft = 0;
+
+    repeat(200000) @ (posedge clk);
+
+    OVR_I_rght = 1;
+
+    repeat(200000) @ (posedge clk);
+
+    OVR_I_rght = 0;
+
+    repeat(200000) @ (posedge clk);
 
     rider_lean = 16'h0000;
 
-    repeat(2) begin
-      repeat(125) begin
-        repeat(1000) @ (posedge clk);
-        steerPot = steerPot + 2;
-      end
-
-      repeat(250) begin
-      repeat (1000) @ (posedge clk);
-      steerPot = steerPot - 2;
-      end
-
-      repeat(125) begin
-      repeat(1000) @ (posedge clk);
-      steerPot = steerPot + 2;
-      end
-    end
-
-    repeat(1000000) @ (posedge clk);
+    repeat(350000) @ (posedge clk); 
 
     $stop();
 end

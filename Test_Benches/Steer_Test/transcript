@@ -1,136 +1,3 @@
-# Compile of steer_tb.sv failed with 1 errors.
-# Compile of tb_tasks_pkg.sv was successful.
-# Compile of A2D_intf.sv was successful.
-# Compile of inert_intf.sv was successful.
-# Compile of mtr_drv.sv was successful.
-# Compile of Segway.sv was successful.
-# Compile of steer_en.sv was successful.
-# Compile of balance_cntrl.sv was successful.
-# 8 compiles, 1 failed with 1 error.
-# Compile of steer_tb.sv was successful.
-# Compile of tb_tasks_pkg.sv was successful.
-# 2 compiles, 0 failed with no errors.
-# Compile of balance_cntrl.sv was successful.
-# Compile of Segway_tb.sv was successful.
-# 2 compiles, 0 failed with no errors.
-# Compile of balance_cntrl.sv was successful.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:33:44 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Refreshing C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/work.SegwayModel
-# ** Error (suppressible): (vlog-12110) The -novopt option has no effect on this product. -novopt option is now deprecated and will be removed in future releases.
-# ** Error: vlog failed.
-# subinvocation of vlog failed; return status = 1.
-# ** Error: (vsim-3171) Could not find machine code for 'C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/work.SegwayModel'.
-# No such file or directory. (errno = ENOENT)
-# Error loading design
-# End time: 15:33:45 on Dec 09,2025, Elapsed time: 0:00:01
-# Errors: 2, Warnings: 9
-# Compile of balance_cntrl.sv was successful.
-# Compile of Segway_tb.sv was successful.
-# 2 compiles, 0 failed with no errors.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:36:15 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Refreshing C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/work.SegwayModel
-# ** Error (suppressible): (vlog-12110) The -novopt option has no effect on this product. -novopt option is now deprecated and will be removed in future releases.
-# ** Error: vlog failed.
-# subinvocation of vlog failed; return status = 1.
-# ** Error: (vsim-3171) Could not find machine code for 'C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/work.SegwayModel'.
-# No such file or directory. (errno = ENOENT)
-# Error loading design
-# End time: 15:36:15 on Dec 09,2025, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 2
-# Compile of SegwayModel.sv was successful with warnings.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:36:42 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Refreshing C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/work.ADC128S_FC
-# ** Error (suppressible): (vlog-12110) The -novopt option has no effect on this product. -novopt option is now deprecated and will be removed in future releases.
-# ** Error: vlog failed.
-# subinvocation of vlog failed; return status = 1.
-# ** Error: (vsim-3171) Could not find machine code for 'C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/work.ADC128S_FC'.
-# No such file or directory. (errno = ENOENT)
-# Error loading design
-# End time: 15:36:42 on Dec 09,2025, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 2
-# Compile of steer_tb.sv was successful.
-# Compile of A2D_intf.sv was successful.
-# Compile of ADC128S_FC.sv was successful.
-# Compile of Auth_blk.sv was successful.
-# Compile of inert_intf.sv was successful.
-# Compile of inertial_integrator.sv was successful.
-# Compile of mtr_drv.sv was successful.
-# Compile of piezo_drv.sv was successful.
-# Compile of PWM11.sv was successful.
-# Compile of rst_synch.sv was successful.
-# Compile of Segway.sv was successful.
-# Compile of SegwayModel.sv was successful with warnings.
-# Compile of SPI_ADC128S.sv was successful.
-# Compile of SPI_mnrch.sv was successful.
-# Compile of steer_en.sv was successful.
-# Compile of UART_rx.sv was successful.
-# Compile of UART_tx.sv was successful.
-# Compile of balance_cntrl.sv was successful.
-# Compile of tb_tasks_pkg.sv was successful.
-# Compile of Segway_tb.sv was successful.
-# 20 compiles, 0 failed with no errors.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:37:05 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# Steering left test passed: left speed -501 less than right speed 411
-# Steering right test passed: right speed -504 less than left speed 408
-# Steering center test passed: right speed -219 equal to left speed -219
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(154)
-#    Time: 64143670 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 154
-quit -sim
-# End time: 15:39:16 on Dec 09,2025, Elapsed time: 0:02:11
-# Errors: 0, Warnings: 2
 # Compile of steer_tb.sv was successful.
 # Compile of tb_tasks_pkg.sv was successful.
 # Compile of mtr_drv_tb.sv was successful.
@@ -138,7 +5,6 @@ quit -sim
 # Compile of A2D_intf.sv was successful.
 # Compile of ADC128S_FC.sv was successful.
 # Compile of Auth_blk.sv was successful.
-# Compile of balance_cntrl.sv was successful.
 # Compile of inert_intf.sv was successful.
 # Compile of inertial_integrator.sv was successful.
 # Compile of mtr_drv.sv was successful.
@@ -152,701 +18,16 @@ quit -sim
 # Compile of steer_en.sv was successful.
 # Compile of UART_rx.sv was successful.
 # Compile of UART_tx.sv was successful.
-# 21 compiles, 0 failed with no errors.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:40:48 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# Steering left test passed: left speed -501 less than right speed 411
-# Steering right test passed: right speed -504 less than left speed 408
-# Steering center test passed: right speed -219 equal to left speed -219
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(154)
-#    Time: 64143670 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 154
-add wave -position insertpoint sim:/Segway_tb/iDUT/iBAL/*
-run -all
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# Steering left test passed: left speed -501 less than right speed 411
-# Steering right test passed: right speed -504 less than left speed 408
-# Steering center test passed: right speed -219 equal to left speed -219
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(154)
-#    Time: 64143670 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 154
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-restart
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# Steering left test passed: left speed -501 less than right speed 411
-# Steering right test passed: right speed -504 less than left speed 408
-# Steering center test passed: right speed -219 equal to left speed -219
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(154)
-#    Time: 64143670 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 154
-quit -sim
-# End time: 15:51:36 on Dec 09,2025, Elapsed time: 0:10:48
-# Errors: 0, Warnings: 1
 # Compile of balance_cntrl.sv was successful.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:55:10 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# Steering left test failed: left speed 3595 not less than right speed 411
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(108)
-#    Time: 30101830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 108
-quit -sim
-# End time: 15:56:21 on Dec 09,2025, Elapsed time: 0:01:11
-# Errors: 0, Warnings: 4
-vsim -gui work.steer_tb
-# vsim -gui work.steer_tb 
-# Start time: 15:56:40 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.steer_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/steer_tb/iPHYS/*
-run -all
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(117)
-#    Time: 37063830 ps  Iteration: 1  Instance: /steer_tb
-# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 117
-quit -sim
-# End time: 15:58:49 on Dec 09,2025, Elapsed time: 0:02:09
-# Errors: 0, Warnings: 1
-# Compile of Segway_tb.sv was successful.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 15:59:11 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test failed: pwr_up signal not asserted or theta_platform out of range (495)
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(89)
-#    Time: 28101830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 89
-quit -sim
-# End time: 16:01:44 on Dec 09,2025, Elapsed time: 0:02:33
-# Errors: 0, Warnings: 2
-# Compile of balance_cntrl.sv was successful.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 16:02:18 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test failed: pwr_up signal not asserted or theta_platform out of range (495)
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(89)
-#    Time: 28101830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 89
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test failed: pwr_up signal not asserted or theta_platform out of range (495)
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(89)
-#    Time: 28101830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 89
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-run
-run
-add wave -position insertpoint sim:/Segway_tb/iDUT/iBAL/*
-run
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-run
-run
-run
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/theta_platform
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-run
-run -all
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test failed: pwr_up signal not asserted or theta_platform out of range (495)
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(89)
-#    Time: 28101830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 89
-add wave -position insertpoint  \
-sim:/Segway_tb/iDUT/iNEMO/inert_data
-add wave -position insertpoint  \
-sim:/Segway_tb/iDUT/iNEMO/done
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/shft_reg_tx
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/shft_reg_rx
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-add wave -position insertpoint  \
-sim:/Segway_tb/iDUT/iNEMO/cmd
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-run
-run
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/omega_platform
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-run
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/net_torque
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/torque_lft
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/lft_duty
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-add wave -position insertpoint  \
-sim:/Segway_tb/iDUT/iDRV/iPWM_lft/duty
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-add wave -position insertpoint  \
-sim:/Segway_tb/iDUT/iDRV/lft_spd
-restart
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-run
-# Testing
-quit -sim
-# End time: 17:07:29 on Dec 09,2025, Elapsed time: 1:05:11
-# Errors: 0, Warnings: 1
-# Compile of balance_cntrl.sv was successful.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 17:08:15 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test failed: pwr_up signal not asserted or theta_platform out of range (495)
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(89)
-#    Time: 28101830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 89
-quit -sim
-# End time: 17:10:24 on Dec 09,2025, Elapsed time: 0:02:09
-# Errors: 0, Warnings: 2
-# Compile of Segway_tb.sv was successful.
-# Compile of inertial_integrator.sv was successful.
-# Compile of piezo_drv.sv was successful.
-# Compile of SegwayModel.sv was successful with warnings.
-# Compile of balance_cntrl.sv was successful.
-# 5 compiles, 0 failed with no errors.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 17:10:41 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run -all
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# First test complete.
-# Second test complete.
-# Steering left test passed: left speed -444 less than right speed 468
-# Steering right test passed: right speed -456 less than left speed 456
-# Steering center test passed: right speed 0 equal to left speed 0
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(156)
-#    Time: 119843710 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 156
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/torque_lft \
-sim:/Segway_tb/iPHYS/torque_rght
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/lft_duty \
-sim:/Segway_tb/iPHYS/rght_duty
-add wave -position insertpoint  \
-sim:/Segway_tb/iPHYS/net_torque
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Beginning Tests...
-# Testing
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test passed: pwr_up signal asserted and theta_platform is 0 (0)
-# First test complete.
-# Second test complete.
-# Steering left test passed: left speed -444 less than right speed 468
-# Steering right test passed: right speed -456 less than left speed 456
-# Steering center test passed: right speed 0 equal to left speed 0
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(156)
-#    Time: 119843710 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 156
-quit -sim
-# End time: 18:08:07 on Dec 09,2025, Elapsed time: 0:57:26
-# Errors: 0, Warnings: 1
-# Compile of inertial_integrator.sv failed with 5 errors.
-# Compile of inertial_integrator.sv failed with 4 errors.
-# Compile of inertial_integrator.sv failed with 4 errors.
-# Compile of inertial_integrator.sv was successful.
-vsim -gui work.Segway_tb
-# vsim -gui work.Segway_tb 
-# Start time: 18:11:50 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.Segway_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/Segway_tb/iPHYS/*
-run
-# Beginning Tests...
-run
-# Testing
-run
-run
-# Power up test passed: pwr_up signal asserted after sending 'G' command
-# Balancing test failed: pwr_up signal not asserted or theta_platform out of range (89)
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(89)
-#    Time: 3801830 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 89
-run -all
-# First test complete.
-# Second test complete.
-# Steering left test passed: left speed -455 less than right speed 457
-# Steering right test passed: right speed -457 less than left speed 455
-# Steering center test passed: right speed 44 equal to left speed 44
-# Rider off test passed: rider_off signal asserted when load cells are zero
-# Testing
-# Segway shutdown test passed: pwr_up signal deasserted after sending 'S' command and rider_off is high
-# All tests passed.
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv(156)
-#    Time: 119843710 ps  Iteration: 1  Instance: /Segway_tb
-# Break in Module Segway_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Provided_Test/Segway_tb.sv line 156
-quit -sim
-# End time: 18:15:22 on Dec 09,2025, Elapsed time: 0:03:32
-# Errors: 0, Warnings: 5
-vsim -gui work.steer_tb
-# vsim -gui work.steer_tb 
-# Start time: 18:16:18 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.steer_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/steer_tb/iPHYS/*
-run -all
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(117)
-#    Time: 37063830 ps  Iteration: 1  Instance: /steer_tb
-# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 117
-quit -sim
-# End time: 18:21:47 on Dec 09,2025, Elapsed time: 0:05:29
-# Errors: 0, Warnings: 1
-# Compile of inertial_integrator.sv was successful.
-vsim -gui work.steer_tb
-# vsim -gui work.steer_tb 
-# Start time: 18:22:09 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.steer_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/steer_tb/iPHYS/*
-run -all
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(117)
-#    Time: 37063830 ps  Iteration: 1  Instance: /steer_tb
-# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 117
-quit -sim
-# End time: 18:24:44 on Dec 09,2025, Elapsed time: 0:02:35
-# Errors: 0, Warnings: 2
-# Compile of balance_cntrl.sv was successful.
-vsim -gui work.steer_tb
-# vsim -gui work.steer_tb 
-# Start time: 18:26:35 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.steer_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-run -all
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(117)
-#    Time: 37063830 ps  Iteration: 1  Instance: /steer_tb
-# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 117
-add wave -position insertpoint sim:/steer_tb/iPHYS/*
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(117)
-#    Time: 37063830 ps  Iteration: 1  Instance: /steer_tb
-# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 117
-quit -sim
-# End time: 18:29:19 on Dec 09,2025, Elapsed time: 0:02:44
-# Errors: 0, Warnings: 1
 # Compile of wvfm_tb.sv was successful.
-vsim -gui work.wvfm_tb
-# vsim -gui work.wvfm_tb 
-# Start time: 18:29:53 on Dec 09,2025
+# Compile of ovr_i_tb.sv was successful.
+# 23 compiles, 0 failed with no errors.
+vsim -gui work.steer_tb
+# vsim -gui work.steer_tb 
+# Start time: 09:53:42 on Dec 10,2025
 # Loading sv_std.std
 # Loading work.tb_tasks_pkg
-# Loading work.wvfm_tb
+# Loading work.steer_tb
 # Loading work.SegwayModel
 # Loading work.ADC128S_FC
 # Loading work.SPI_ADC128S
@@ -868,9 +49,21 @@ vsim -gui work.wvfm_tb
 # Loading work.rst_synch
 # Loading work.UART_tx
 # WARNING: No extended dataflow license exists
-add wave -position insertpoint sim:/wvfm_tb/iPHYS/*
+add wave -position insertpoint  \
+sim:/steer_tb/iPHYS/torque_lft
+add wave -position insertpoint  \
+sim:/steer_tb/iPHYS/torque_rght
+add wave -position insertpoint  \
+sim:/steer_tb/iPHYS/theta_platform
+add wave -position insertpoint  \
+sim:/steer_tb/steerPot
 run -all
 # Testing
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(119)
+#    Time: 70063830 ps  Iteration: 1  Instance: /steer_tb
+# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 119
+add wave -position insertpoint  \
+sim:/steer_tb/iDUT/iNEMO/iINT/fusion_ptch_offset
 restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 run -all
@@ -878,80 +71,25 @@ run -all
 # 
 # 
 # Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
-#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
-# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
-restart
-add wave -position insertpoint  \
-sim:/wvfm_tb/iPHYS/theta_platform
-add wave -position insertpoint sim:/wvfm_tb/iDUT/iNEMO/iINT/*
 restart
 run -all
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
 # Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
-#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
-# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
-add wave -position insertpoint  \
-sim:/wvfm_tb/iPHYS/theta_platform
-add wave -position insertpoint sim:/wvfm_tb/iDUT/iNEMO/iINT/*
-restart
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
-#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
-# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv(119)
+#    Time: 70063830 ps  Iteration: 1  Instance: /steer_tb
+# Break in Module steer_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Steer_Test/steer_tb.sv line 119
 quit -sim
-# Compile of inertial_integrator.sv was successful.
-# End time: 18:55:48 on Dec 09,2025, Elapsed time: 0:25:55
-# Errors: 0, Warnings: 2
-vsim -gui work.wvfm_tb
-# vsim -gui work.wvfm_tb 
-# Start time: 18:56:00 on Dec 09,2025
-# Loading sv_std.std
-# Loading work.tb_tasks_pkg
-# Loading work.wvfm_tb
-# Loading work.SegwayModel
-# Loading work.ADC128S_FC
-# Loading work.SPI_ADC128S
-# Loading work.Segway
-# Loading work.Auth_blk
-# Loading work.UART_rx
-# Loading work.inert_intf
-# Loading work.SPI_mnrch
-# Loading work.inertial_integrator
-# Loading work.balance_cntrl
-# Loading work.PID
-# Loading work.SegwayMath
-# Loading work.steer_en
-# Loading work.steer_en_SM
-# Loading work.mtr_drv
-# Loading work.PWM11
-# Loading work.A2D_intf
-# Loading work.piezo_drv
-# Loading work.rst_synch
-# Loading work.UART_tx
-# WARNING: No extended dataflow license exists
-add wave -position insertpoint  \
-sim:/wvfm_tb/iPHYS/theta_platform
-add wave -position insertpoint sim:/wvfm_tb/iDUT/iNEMO/iINT/*
-run -all
-# Testing
-# ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
-#    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
-# Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
-quit -sim
-# End time: 19:06:32 on Dec 09,2025, Elapsed time: 0:10:32
+# End time: 10:05:13 on Dec 10,2025, Elapsed time: 0:11:31
 # Errors: 0, Warnings: 1
+# Compile of inertial_integrator.sv failed with 4 errors.
+# Compile of inertial_integrator.sv failed with 2 errors.
+# Compile of inertial_integrator.sv failed with 2 errors.
 # Compile of inertial_integrator.sv was successful.
 vsim -gui work.wvfm_tb
 # vsim -gui work.wvfm_tb 
-# Start time: 19:06:51 on Dec 09,2025
+# Start time: 10:06:43 on Dec 10,2025
 # Loading sv_std.std
 # Loading work.tb_tasks_pkg
 # Loading work.wvfm_tb
@@ -978,19 +116,18 @@ vsim -gui work.wvfm_tb
 # WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
 sim:/wvfm_tb/iPHYS/theta_platform
-add wave -position insertpoint sim:/wvfm_tb/iDUT/iNEMO/iINT/*
 run -all
 # Testing
 # ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
 #    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
 # Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
 quit -sim
-# End time: 19:13:43 on Dec 09,2025, Elapsed time: 0:06:52
-# Errors: 0, Warnings: 2
+# End time: 10:08:46 on Dec 10,2025, Elapsed time: 0:02:03
+# Errors: 0, Warnings: 5
 # Compile of inertial_integrator.sv was successful.
 vsim -gui work.wvfm_tb
 # vsim -gui work.wvfm_tb 
-# Start time: 19:14:11 on Dec 09,2025
+# Start time: 10:08:57 on Dec 10,2025
 # Loading sv_std.std
 # Loading work.tb_tasks_pkg
 # Loading work.wvfm_tb
@@ -1017,10 +154,11 @@ vsim -gui work.wvfm_tb
 # WARNING: No extended dataflow license exists
 add wave -position insertpoint  \
 sim:/wvfm_tb/iPHYS/theta_platform
-add wave -position insertpoint  \
-sim:/wvfm_tb/iPHYS/rider_lean
 run -all
 # Testing
 # ** Note: $stop    : C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv(87)
 #    Time: 37063830 ps  Iteration: 1  Instance: /wvfm_tb
 # Break in Module wvfm_tb at C:/Users/twsoc/ECE_551/ECE_551_Project/Test_Benches/Waveform_Test/wvfm_tb.sv line 87
+quit -sim
+# End time: 10:19:02 on Dec 10,2025, Elapsed time: 0:10:05
+# Errors: 0, Warnings: 2
